@@ -1,0 +1,19 @@
+:root {
+  /* Colores base */
+  --green-primary: #43b028;
+  --green-secondary: #6fb71f;
+  --green-light: #a8e063;
+
+  /* Tonos neutros */
+  --background: #f4f4f9;
+  --white: #ffffff;
+  --text: #333333;
+  --border: #dddddd;
+  --shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+
+  /* Tipografía */
+  --font-family: 'Poppins', sans-serif;
+  --font-size-base: 16px;
+  --font-size-large: 18px;
+  --font-size-small: 14px;
+}

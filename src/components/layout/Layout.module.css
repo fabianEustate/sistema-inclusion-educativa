@@ -1,0 +1,55 @@
+.sidebar {
+  background: var(--white);
+  border-right: 1px solid var(--border);
+  transition: width 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background: var(--green-primary);
+  color: var(--white);
+}
+
+.menu {
+  margin-top: 0.5rem;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  cursor: pointer;
+  color: var(--text);
+  transition: background 0.2s;
+}
+
+.menuItem:hover {
+  background: #e9f7ee;
+}
+
+.menuIcon {
+  color: var(--green-primary);
+  font-size: 1.2rem;
+  margin-right: 1rem;
+}
+
+.topbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: var(--white);
+  padding: 0.8rem 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}

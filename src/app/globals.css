@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import '../styles/variables.css';
+
+/* ============ RESETEO GENERAL ============ */
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-family);
+  background-color: var(--background);
+  color: var(--text);
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ============ VARIABLES DE ACCESIBILIDAD ============ */
+:root {
+  /* Escala de fuente dinámica */
+  --font-scale: 1;
+}
+
+/* Aplica la escala de fuente globalmente */
+html {
+  font-size: calc(var(--font-size-base) * var(--font-scale));
+}
+
+/* ============ MODO OSCURO ============ */
+html[data-theme='dark'] {
+  --background: #1e1e1e;
+  --text: #eaeaea;
+  --border: #444;
+  --white: #2b2b2b;
+  --shadow: 0 2px 5px rgba(255, 255, 255, 0.05);
+}
+
+/* ============ CONTRASTE ============ */
+html.contrast-1 body {
+  filter: contrast(1.25) saturate(1.05) !important;
+}
+
+html.contrast-2 body {
+  filter: contrast(1.5) saturate(1.15) !important;
+}
+
+/* ============ DALTONISMO ============ */
+html.daltonic body {
+  /* Ajuste de tono + leve desaturación */
+  filter: hue-rotate(25deg) saturate(0.85) !important;
+}
+
+/* ============ ESTILOS BASE DE COMPONENTES ============ */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Cartas y elementos PrimeReact */
+.p-card {
+  background-color: var(--white) !important;
+  color: var(--text) !important;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+/* Inputs y botones */
+.p-inputtext,
+.p-dropdown,
+.p-multiselect,
+.p-calendar,
+.p-password,
+.p-inputnumber {
+  background-color: var(--white) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border) !important;
+}
+
+/* Botones principales */
+.p-button {
+  background-color: var(--green-primary) !important;
+  border: none !important;
+  color: white !important;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.p-button:hover {
+  background-color: var(--green-secondary) !important;
+}
+
+/* Asegura que PrimeReact adopte los colores de tema en modo oscuro */
+html[data-theme='dark'] .p-button,
+html[data-theme='dark'] .p-card,
+html[data-theme='dark'] .p-inputtext {
+  background-color: var(--white) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+/* ======= BOTONES DE OPCIONES DE ACCESIBILIDAD ======= */
+
+/* Fondo blanco y borde gris por defecto */
+.accessibility-option .p-button {
+  background-color: var(--white) !important;
+  color: var(--text) !important;
+  border: 1.5px solid var(--border) !important;
+  box-shadow: none !important;
+}
+
+/* Cuando el botón está seleccionado (activo) */
+.accessibility-option .p-button-active,
+.accessibility-option .p-button-success {
+  background-color: var(--green-primary) !important;
+  color: white !important;
+  border-color: var(--green-primary) !important;
+}
+
+/* Hover: tono más suave del verde */
+.accessibility-option .p-button:hover {
+  background-color: #e9f7ee !important;
+  color: var(--green-primary) !important;
+  border-color: var(--green-primary) !important;
+}
+
+/* Pequeña transición para suavidad visual */
+.accessibility-option .p-button {
+  transition: all 0.2s ease;
+}
+
+
+
+
