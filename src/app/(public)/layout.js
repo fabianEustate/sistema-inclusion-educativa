@@ -5,44 +5,60 @@ import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import '../globals.css';
 import '@/styles/variables.css';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import './layoutPublic.css';
 import AccessibilityMenu from '@/components/accessibility/AccessibilityMenu';
 
 export default function PublicLayout({ children }) {
+  const pathname = usePathname();
+  const isInicio = pathname.includes('/inicio');
+
   return (
     <html lang="es">
-      <body style={{ backgroundColor: '#f4f4f9', fontFamily: 'Poppins, sans-serif' }}>
-        <header
-          style={{
-            backgroundColor: '#43b028',
-            color: 'white',
-            padding: '1rem 2rem',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-          }}
-        >
-          <h1 style={{ margin: 0 }}>Sistema de Inclusión Educativa</h1>
-          <nav style={{ display: 'flex', gap: '1rem' }}>
-            <a href="/inicio" style={{ color: 'white', textDecoration: 'none' }}>Inicio</a>
-            <a href="/eventos" style={{ color: 'white', textDecoration: 'none' }}>Eventos</a>
-            <a href="/noticias" style={{ color: 'white', textDecoration: 'none' }}>Noticias</a>
-            <a href="/dashboard" style={{ color: 'white', textDecoration: 'none' }}>Ingresar</a>
-          </nav>
+      <body>
+        {/* ======= HEADER INSTITUCIONAL ======= */}
+        <header className="public-header" role="banner" aria-label="Encabezado institucional">
+          <div className="header-container">
+            {/* LOGO */}
+            <div className="header-logo" tabIndex={0}>
+              <img
+                src="/logo.png"
+                alt="Logo de la Universidad Popular del Cesar"
+                className="logo"
+              />
+              <span className="header-title">Universidad Popular del Cesar</span>
+            </div>
+
+            {/* NAV LINKS */}
+            <nav
+              className="header-nav"
+              role="navigation"
+              aria-label="Navegación principal del sitio"
+            >
+              <Link href="/inicio" aria-current={pathname === '/public/inicio'}>
+                Inicio
+              </Link>
+              <Link href="/eventos" aria-current={pathname === '/public/eventos'}>
+                Eventos
+              </Link>
+              <Link href="/noticias" aria-current={pathname === '/public/noticias'}>
+                Noticias
+              </Link>
+              <Link href="/login">Ingresar</Link>
+            </nav>
+          </div>
         </header>
 
-        <main style={{ minHeight: 'calc(100vh - 60px)', padding: '2rem' }}>
-          {children}
-        </main>
+        {/* ======= CONTENIDO ======= */}
+        <main>{children}</main>
 
-        <footer
-          style={{
-            backgroundColor: '#6fb71f',
-            color: 'white',
-            textAlign: 'center',
-            padding: '1rem',
-          }}
-        >
-          Universidad Popular del Cesar — Sistema de Inclusión Educativa © 2025
+        {/* ======= FOOTER ======= */}
+        <footer className="public-footer" role="contentinfo">
+          <p>
+            © {new Date().getFullYear()} Universidad Popular del Cesar — Oficina de Bienestar
+            Institucional. Todos los derechos reservados.
+          </p>
         </footer>
         <AccessibilityMenu />
       </body>

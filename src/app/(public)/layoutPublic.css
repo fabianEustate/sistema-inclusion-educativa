@@ -1,0 +1,63 @@
+:root {
+  --green-primary: #43b028;
+  --green-secondary: #6fb71f;
+  --background: #f4f4f9;
+  --text: #333;
+}
+
+/* ======= HEADER ======= */
+.public-header {
+  background-color: #f4f4f9;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 2rem;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.header-logo .logo {
+  width: 45px;
+  height: 45px;
+}
+
+.header-title {
+  font-weight: 600;
+  color: var(--green-primary);
+  font-size: 1.1rem;
+}
+
+.header-nav a {
+  margin-left: 1.5rem;
+  font-weight: 600;
+  color: #444;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.header-nav a:hover,
+.header-nav a[aria-current='true'] {
+  color: var(--green-primary);
+  border-bottom: 2px solid var(--green-primary);
+}
+
+/* ======= FOOTER ======= */
+.public-footer {
+  background-color: #222;
+  color: #eee;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+  margin-top: 3rem;
+}
