@@ -1,0 +1,319 @@
+/* Contenedor principal */
+.container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Tarjeta del formulario */
+.card {
+  background-color: var(--white);
+  box-shadow: var(--shadow);
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+/* Título principal */
+.title {
+  color: var(--green-primary);
+  font-size: 1.75rem;
+  font-weight: 600;
+  font-family: var(--font-family);
+}
+
+/* Grid del formulario */
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+/* Campo completo (ocupa toda la fila) */
+.fieldFull {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Campo mitad (ocupa media fila) */
+.fieldHalf {
+  grid-column: span 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Campo tercio (ocupa un tercio) */
+.fieldThird {
+  grid-column: span 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Campo pequeño - para fecha */
+.fieldSmall {
+  grid-column: span 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Campo grande - para nombres junto a fecha */
+.fieldLarge {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Etiquetas */
+.label {
+  font-weight: 500;
+  color: var(--text);
+  font-size: 0.95rem;
+  font-family: var(--font-family);
+}
+
+/* Indicador de campo requerido */
+.required {
+  color: #e74c3c;
+  margin-left: 0.25rem;
+}
+
+/* Inputs */
+.input {
+  width: 100%;
+  font-family: var(--font-family);
+}
+
+/* Input de fecha más pequeño */
+.inputDate {
+  width: 100%;
+  font-family: var(--font-family);
+}
+
+/* Input de hora más pequeño */
+.inputTime {
+  width: 100%;
+  font-family: var(--font-family);
+}
+
+/* Wrapper para fecha con formato */
+.dateWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Fecha formateada */
+.fechaFormateada {
+  background-color: #f8f9fa;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  font-family: var(--font-family);
+  color: var(--green-primary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Contenedor de dirección */
+.direccionContainer {
+  display: flex;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.direccionDisplay {
+  flex: 1;
+  background-color: #f8f9fa;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  min-height: 50px;
+}
+
+.direccionText {
+  font-family: var(--font-family);
+  color: var(--text);
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+}
+
+.direccionPlaceholder {
+  font-family: var(--font-family);
+  color: #999;
+  font-size: 0.95rem;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+}
+
+.direccionButton {
+  background-color: var(--green-primary) !important;
+  border: none !important;
+  color: white !important;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem !important;
+  font-family: var(--font-family);
+  white-space: nowrap;
+  min-width: 120px;
+}
+
+.direccionButton:hover {
+  background-color: var(--green-secondary) !important;
+}
+
+/* Textarea */
+.textarea {
+  width: 100%;
+  font-family: var(--font-family);
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Grupo de radio buttons */
+.radioGroup {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.radioItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.radioLabel {
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+/* Grupo de botones */
+.buttonGroup {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* Botón guardar */
+.saveButton {
+  background-color: var(--green-primary) !important;
+  border: none !important;
+  color: white !important;
+  font-weight: 500;
+  padding: 0.75rem 2rem;
+  font-family: var(--font-family);
+  transition: background-color 0.2s ease;
+}
+
+.saveButton:hover {
+  background-color: var(--green-secondary) !important;
+}
+
+/* Botón cancelar */
+.cancelButton {
+  background-color: var(--white) !important;
+  border: 1.5px solid var(--border) !important;
+  color: var(--text) !important;
+  font-weight: 500;
+  padding: 0.75rem 2rem;
+  font-family: var(--font-family);
+  transition: all 0.2s ease;
+}
+
+.cancelButton:hover {
+  background-color: #f8f8f8 !important;
+  border-color: var(--green-primary) !important;
+  color: var(--green-primary) !important;
+}
+
+/* Responsive: tablets y móviles */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .fieldHalf,
+  .fieldThird,
+  .fieldSmall,
+  .fieldLarge {
+    grid-column: 1 / -1;
+  }
+
+  .radioGroup {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .buttonGroup {
+    flex-direction: column-reverse;
+  }
+
+  .saveButton,
+  .cancelButton {
+    width: 100%;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .direccionContainer {
+    flex-direction: column;
+  }
+
+  .direccionButton {
+    width: 100%;
+  }
+}
+
+/* Ajustes para modo oscuro */
+html[data-theme='dark'] .card {
+  background-color: var(--white);
+  border: 1px solid var(--border);
+}
+
+html[data-theme='dark'] .label {
+  color: var(--text);
+}
+
+html[data-theme='dark'] .radioLabel {
+  color: var(--text);
+}
+
+html[data-theme='dark'] .fechaFormateada {
+  background-color: #2b2b2b;
+  border-color: var(--border);
+}
+
+html[data-theme='dark'] .direccionDisplay {
+  background-color: #2b2b2b;
+  border-color: var(--border);
+}
+
+html[data-theme='dark'] .direccionText {
+  color: var(--text);
+}
