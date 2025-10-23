@@ -1,0 +1,94 @@
+.section {
+  padding: 5rem 2rem;
+  background: linear-gradient(180deg, #ffffff 0%, #f4f4f9 100%);
+  color: var(--text);
+  text-align: center;
+}
+
+.header {
+  margin-bottom: 2.5rem;
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--green-primary);
+  margin-bottom: 0.5rem;
+}
+
+.line {
+  width: 100px;
+  height: 4px;
+  background-color: var(--green-primary);
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+/* Contenedor general */
+.cardsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Tarjetas */
+.card {
+  background-color: var(--white);
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  width: 250px;
+  text-align: center;
+  border: 1px solid #e0e0e0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex-shrink: 0;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 16px rgba(67, 176, 40, 0.2);
+}
+
+/* Íconos */
+.icon {
+  font-size: 2.5rem;
+  color: var(--green-primary);
+  margin-bottom: 1rem;
+}
+
+/* Título y texto */
+.card h3 {
+  color: var(--green-primary);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.card p {
+  white-space: pre-line;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+/*  Ajuste responsive */
+@media (max-width: 1100px) {
+  .cardsContainer {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .card {
+    width: 45%;
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    width: 100%;
+  }
+}

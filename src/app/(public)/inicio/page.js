@@ -1,35 +1,42 @@
 'use client';
-import React from 'react';
-import { Card } from 'primereact/card';
+import React, { useEffect } from 'react';
+import styles from './Inicio.module.css';
+//import TopNavbar from './components/TopNavbar';
+import GreenMenu from './components/GreenMenu';
+import HeroSection from './components/HeroSection';
+import Presentacion from './components/Presentacion';
+import MisionVision from './components/MisionVision';
+import Objetivo from './components/Objetivo';
+import Herramientas from './components/Herramientas';
+import Galeria from './components/Galeria';
+import Contacto from './components/Contacto';
 
 export default function InicioPage() {
-  return (
-    <section style={{ padding: '2rem' }}>
-      <h2 style={{ color: '#43b028' }}>Bienvenido al Sistema de Inclusión Educativa</h2>
-      <p>
-        Este sistema tiene como propósito fortalecer los procesos de inclusión en la Universidad
-        Popular del Cesar, promoviendo una educación equitativa y accesible para todos.
-      </p>
+  // Smooth scroll
+  useEffect(() => {
+    const links = document.querySelectorAll('a[href^="#"]');
+    links.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  }, []);
 
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-          gap: '1rem',
-          marginTop: '2rem',
-        }}
-      >
-        <Card title="Misión" subTitle="Nuestra razón de ser">
-          <p>
-            Fomentar la inclusión de estudiantes con discapacidad a través de estrategias tecnológicas y pedagógicas.
-          </p>
-        </Card>
-        <Card title="Visión" subTitle="Hacia el futuro">
-          <p>
-            Ser un referente institucional en innovación educativa y accesibilidad en el 2030.
-          </p>
-        </Card>
-      </div>
-    </section>
+  return (
+    <>
+      {/*<TopNavbar />*/}
+      
+      <main className={styles.main}>
+        <HeroSection />
+        <GreenMenu />
+        <section id="presentacion"><Presentacion /></section>
+        <section id="mision"><MisionVision /></section>
+        <section id="objetivo"><Objetivo /></section>
+        <section id="herramientas"><Herramientas /></section>
+        <section id="galeria"><Galeria /></section>
+        <section id="contacto"><Contacto /></section>
+      </main>
+    </>
   );
 }
