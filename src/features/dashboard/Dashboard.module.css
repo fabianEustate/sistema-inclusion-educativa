@@ -1,0 +1,64 @@
+.dashboardContainer {
+  padding: 2rem;
+  background-color: var(--background);
+}
+
+.kpiContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.kpiCard {
+  flex: 1;
+  min-width: 180px;
+  text-align: center;
+  background-color: var(--white);
+  border-left: 5px solid var(--green-primary);
+  box-shadow: var(--shadow);
+}
+
+.kpiCard h2 {
+  font-size: 2rem;
+  color: var(--green-primary);
+  margin: 0;
+}
+
+.kpiCard p {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.chartsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.5rem;
+}
+
+.chartCard {
+  background-color: var(--white);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.chartCard h3 {
+  font-size: 1rem;
+  color: var(--text);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.mapCard {
+  background-color: var(--white);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.mapContainer {
+  border-radius: 10px;
+  overflow: hidden;
+}

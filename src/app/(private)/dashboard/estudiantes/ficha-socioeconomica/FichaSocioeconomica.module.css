@@ -1,54 +1,215 @@
 .container {
   padding: 2rem;
-  color: var(--text);
+  background-color: var(--background);
+  min-height: 100vh;
 }
 
 .header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
-.header h2 {
+.headerTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
   color: var(--green-primary);
-  margin: 0;
-  font-weight: 600;
 }
 
 .card {
-  background-color: var(--white);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
   padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  background-color: var(--white);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sectionTitle {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--green-primary);
+  margin-bottom: 0.8rem;
+  border-left: 5px solid var(--green-primary);
+  padding-left: 0.8rem;
 }
 
 .formGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem 1.5rem;
 }
 
 .field {
   display: flex;
   flex-direction: column;
+  gap: 0.3rem;
 }
 
 .fieldWide {
-  grid-column: span 2;
+  grid-column: 1 / -1;
   display: flex;
   flex-direction: column;
+  gap: 0.3rem;
 }
 
 .label {
   font-weight: 600;
   margin-bottom: 0.3rem;
+  color: var(--text);
 }
 
-.actions {
+.checkboxGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1.2rem;
+  margin-top: 0.3rem;
+}
+
+.checkboxGroup label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.conditionalInput {
+  margin-top: 0.6rem;
+}
+
+.conditionalFields {
+  margin-top: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* Foto del estudiante movida arriba con fecha de diligenciamiento */
+.photoHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.photoWrapper {
+  width: 140px;
+  height: 140px;
+  border: 2px dashed var(--border);
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background);
+}
+
+.photoPlaceholder {
+  font-size: 0.9rem;
+  color: var(--text);
+  opacity: 0.6;
+}
+
+.photoPreview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photoControls {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text);
+  text-align: center;
+}
+
+.helperText {
+  display: block;
+  margin-top: 0.2rem;
+  color: var(--text);
+  opacity: 0.7;
+  font-size: 0.8rem;
+}
+
+/* Tabla de composición familiar */
+.familyContainer {
+  margin-top: 1rem;
+}
+
+.familyHeader {
   display: flex;
   justify-content: flex-end;
+  margin-bottom: 0.8rem;
+}
+
+.familyTable {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.familyRow {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 0.8fr 1.5fr 1.5fr 1.5fr 1.3fr 0.5fr;
+  gap: 0.5rem;
+  align-items: center;
+  background-color: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.5rem;
+}
+
+.familyCell {
+  width: 100%;
+}
+
+.familyCellSmall {
+  width: 100%;
+}
+
+.familyCellAction {
+  text-align: center;
+}
+
+.noData {
+  text-align: center;
+  color: var(--text);
+  opacity: 0.7;
+  font-style: italic;
+  padding: 1rem;
+}
+
+/* Botones de acción */
+.actions {
+  display: flex;
   gap: 1rem;
-  margin-top: 1.5rem;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .familyRow {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .sectionTitle {
+    font-size: 1rem;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
 }
