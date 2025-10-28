@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Button } from 'primereact/button';
 import { Divider } from 'primereact/divider';
 import { Calendar } from 'primereact/calendar';
+import { RadioButton } from 'primereact/radiobutton';
 import DireccionModal from './direccion-modal-component';
 import styles from './styleshistoria/HistoriaDiscapacidad.module.css';
 import DescargarPDFDiscapacidad from './DescargarPDFDiscapacidad';
@@ -29,7 +30,8 @@ const HistoriadeDiscapacidad = () => {
     otra_discapacidad: '',
     estado_civil: '',
     nombre_persona_a_cargo: '',
-    epsIps: '',
+    tipoEntidadSalud: '',
+    nombreEntidadSalud: '',
     agregarFamiliar: '',
     nombrePadre: '',
     nombreMadre: '',
@@ -140,6 +142,20 @@ const HistoriadeDiscapacidad = () => {
       return;
     }
 
+    // Si se cambia el tipo de entidad de salud, limpiar el nombre
+    if (field === 'tipoEntidadSalud') {
+      setFormData(prev => ({
+        ...prev,
+        tipoEntidadSalud: value,
+        nombreEntidadSalud: '' // Limpiar el nombre cuando cambie el tipo
+      }));
+      const newErrors = { ...errors };
+      delete newErrors.tipoEntidadSalud;
+      delete newErrors.nombreEntidadSalud;
+      setErrors(newErrors);
+      return;
+    }
+
     // Validar el campo
     const { isValid, errors: newErrors } = validateField(field, value, errors);
     setErrors(newErrors);
@@ -195,7 +211,8 @@ const HistoriadeDiscapacidad = () => {
       otra_discapacidad: '',
       estado_civil: '',
       nombre_persona_a_cargo: '',
-      epsIps: '',
+      tipoEntidadSalud: '',
+      nombreEntidadSalud: '',
       agregarFamiliar: '',
       nombrePadre: '',
       nombreMadre: '',
@@ -300,31 +317,16 @@ const HistoriadeDiscapacidad = () => {
               <label className={styles.label}>
                 Fecha de Nacimiento: <span style={{color: 'red'}}>*</span>
               </label>
-              <div className="p-inputgroup">
-                <Calendar
-                  inputId="fecha_nacimiento"
-                  value={formData.fecha_nacimiento ? new Date(formData.fecha_nacimiento) : null}
-                  onChange={(e) => {
-                    const date = e.value;
-                    if (date) {
-                      const year = date.getFullYear();
-                      const month = String(date.getMonth() + 1).padStart(2, '0');
-                      const day = String(date.getDate()).padStart(2, '0');
-                      handleInputChange('fecha_nacimiento', `${year}-${month}-${day}`);
-                    } else {
-                      handleInputChange('fecha_nacimiento', '');
-                    }
-                  }}
-                  dateFormat="dd/mm/yy"
-                  showIcon
-                  maxDate={new Date()}
-                  yearNavigator
-                  yearRange="1920:2024"
-                  monthNavigator
-                  className={`${errors.fecha_nacimiento ? 'p-invalid' : ''}`}
-                  inputStyle={{width: '100%'}}
-                />
-              </div>
+              <Calendar
+                id="fecha_nacimiento"
+                value={formData.fecha_nacimiento}
+                onChange={(e) => handleInputChange('fecha_nacimiento', e.value)}
+                dateFormat="yy-mm-dd"
+                placeholder="Seleccione fecha de nacimiento"
+                className={errors.fecha_nacimiento ? 'p-invalid' : ''}
+                minDate={new Date(new Date().setFullYear(new Date().getFullYear() - 100))}
+                maxDate={new Date()}
+              />
               {errors.fecha_nacimiento && <span className={styles.errorText}>{errors.fecha_nacimiento}</span>}
             </div>
           </div>
@@ -506,15 +508,47 @@ const HistoriadeDiscapacidad = () => {
 
           <div className={styles.formField}>
             <label className={styles.label}>
-              EPS o IPS: <span style={{color: 'red'}}>*</span>
+              Entidad de Salud: <span style={{color: 'red'}}>*</span>
             </label>
-            <input
-              type="text"
-              value={formData.epsIps}
-              onChange={(e) => handleInputChange('epsIps', e.target.value)}
-              className={`${styles.input} ${errors.epsIps ? styles.inputError : ''}`}
-            />
-            {errors.epsIps && <span className={styles.errorText}>{errors.epsIps}</span>}
+            <div style={{display: 'flex', gap: '24px', marginBottom: '12px'}}>
+              <div style={{display: 'flex', alignItems: 'center', gap: '8px'}}>
+                <RadioButton
+                  inputId="eps"
+                  name="tipoEntidadSalud"
+                  value="EPS"
+                  onChange={(e) => handleInputChange('tipoEntidadSalud', e.value)}
+                  checked={formData.tipoEntidadSalud === 'EPS'}
+                />
+                <label htmlFor="eps" style={{cursor: 'pointer', margin: 0}}>EPS</label>
+              </div>
+              <div style={{display: 'flex', alignItems: 'center', gap: '8px'}}>
+                <RadioButton
+                  inputId="ips"
+                  name="tipoEntidadSalud"
+                  value="IPS"
+                  onChange={(e) => handleInputChange('tipoEntidadSalud', e.value)}
+                  checked={formData.tipoEntidadSalud === 'IPS'}
+                />
+                <label htmlFor="ips" style={{cursor: 'pointer', margin: 0}}>IPS</label>
+              </div>
+            </div>
+            {errors.tipoEntidadSalud && <span className={styles.errorText}>{errors.tipoEntidadSalud}</span>}
+            
+            {formData.tipoEntidadSalud && (
+              <>
+                <label className={styles.label} style={{marginTop: '12px'}}>
+                  Nombre de la {formData.tipoEntidadSalud}: <span style={{color: 'red'}}>*</span>
+                </label>
+                <input
+                  type="text"
+                  value={formData.nombreEntidadSalud}
+                  onChange={(e) => handleInputChange('nombreEntidadSalud', e.target.value)}
+                  className={`${styles.input} ${errors.nombreEntidadSalud ? styles.inputError : ''}`}
+                  placeholder={`Ingrese el nombre de la ${formData.tipoEntidadSalud}`}
+                />
+                {errors.nombreEntidadSalud && <span className={styles.errorText}>{errors.nombreEntidadSalud}</span>}
+              </>
+            )}
           </div>
 
           <div className={styles.sectionHeader}>

@@ -3,9 +3,37 @@ import React from 'react';
 import { Button } from 'primereact/button';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import logo from '../../../../../components/ui/logo_siglas.png';
 
 const DescargarPDFDiscapacidad = ({ formData }) => {
+  
+  // Función para convertir imagen a base64
+  const getBase64Image = (img) => {
+    const canvas = document.createElement('canvas');
+    canvas.width = img.width;
+    canvas.height = img.height;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(img, 0, 0);
+    return canvas.toDataURL('image/png');
+  };
+
   const generarPDF = async () => {
+    // Cargar y convertir el logo a base64
+    let logoBase64 = '';
+    try {
+      const img = new Image();
+      img.src = logo.src || logo; // Maneja tanto objetos de Next.js como rutas directas
+      await new Promise((resolve, reject) => {
+        img.onload = () => {
+          logoBase64 = getBase64Image(img);
+          resolve();
+        };
+        img.onerror = reject;
+      });
+    } catch (error) {
+      console.error('Error al cargar el logo:', error);
+    }
+
     // Crear elemento temporal para el PDF
     const elemento = document.createElement('div');
     elemento.style.position = 'absolute';
@@ -22,8 +50,7 @@ const DescargarPDFDiscapacidad = ({ formData }) => {
           <tr>
             <td style="width: 30%; border: 1px solid #000; padding: 10px; text-align: center;">
               <div style="height: 60px; display: flex; align-items: center; justify-content: center;">
-                <!-- Logo aquí -->
-                <div style="color: #999; font-size: 10px;">LOGO</div>
+                ${logoBase64 ? `<img src="${logoBase64}" alt="Logo UPC" style="max-width: 100px; max-height: 60px;" />` : '<div style="width: 100px; height: 60px; background-color: #f0f0f0;"></div>'}
               </div>
             </td>
             <td style="width: 40%; border: 1px solid #000; padding: 10px; text-align: center;">

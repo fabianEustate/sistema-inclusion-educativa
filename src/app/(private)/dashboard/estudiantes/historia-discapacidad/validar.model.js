@@ -105,7 +105,13 @@ export const validateForm = (formData) => {
   }
   if (!formData.estado_civil) newErrors.estado_civil = 'Campo obligatorio';
   if (!formData.nombre_persona_a_cargo.trim()) newErrors.nombre_persona_a_cargo = 'Campo obligatorio';
-  if (!formData.epsIps.trim()) newErrors.epsIps = 'Campo obligatorio';
+  
+  // Validar entidad de salud
+  if (!formData.tipoEntidadSalud) newErrors.tipoEntidadSalud = 'Debe seleccionar EPS o IPS';
+  if (formData.tipoEntidadSalud && !formData.nombreEntidadSalud.trim()) {
+    newErrors.nombreEntidadSalud = 'Campo obligatorio';
+  }
+  
   if (!formData.causaDiscapacidad.trim()) newErrors.causaDiscapacidad = 'Campo obligatorio';
   if (!formData.antecedentesPersonales.trim()) newErrors.antecedentesPersonales = 'Campo obligatorio';
 
@@ -166,13 +172,23 @@ export const validateField = (field, value, errors) => {
     
     case 'con_quien_vive':
     case 'nombre_persona_a_cargo':
-    case 'epsIps':
+    case 'nombreEntidadSalud':
     case 'nombrePadre':
     case 'nombreMadre':
     case 'otra_discapacidad':
       if (!validarAlfabetico(value)) {
         isValid = false;
         newErrors[field] = 'Solo se permiten digitar letras';
+      } else {
+        delete newErrors[field];
+      }
+      break;
+    
+    case 'tipoEntidadSalud':
+      // Solo validar que sea EPS o IPS
+      if (value && value !== 'EPS' && value !== 'IPS') {
+        isValid = false;
+        newErrors[field] = 'Debe seleccionar EPS o IPS';
       } else {
         delete newErrors[field];
       }
