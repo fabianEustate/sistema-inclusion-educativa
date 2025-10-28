@@ -3,7 +3,7 @@ import { Dialog } from 'primereact/dialog';
 import { InputText } from 'primereact/inputtext';
 import { Dropdown } from 'primereact/dropdown';
 import { Button } from 'primereact/button';
-import styles from './Direccion.Modal.module.css';
+import styles from './styleshistoria/Direccion.Modal.module.css';
 
 export default function DireccionModal({ visible, onHide, onSave, direccionInicial = null }) {
   const [direccionData, setDireccionData] = useState(direccionInicial || {

@@ -96,9 +96,12 @@ export const validateForm = (formData) => {
   if (!formData.id_direccion.trim()) newErrors.id_direccion = 'Campo obligatorio';
   if (!formData.con_quien_vive.trim()) newErrors.con_quien_vive = 'Campo obligatorio';
   if (!formData.telefono.trim()) newErrors.telefono = 'Campo obligatorio';
-  if (!formData.tipoDiscapacidad) newErrors.tipoDiscapacidad = 'Campo obligatorio';
-  if (formData.tipoDiscapacidad === 'Otra' && !formData.otraDiscapacidad.trim()) {
-    newErrors.otraDiscapacidad = 'Campo obligatorio';
+  if (!formData.nombre_discapacidad || !formData.nombre_discapacidad.trim()) {
+    newErrors.nombre_discapacidad = 'Campo obligatorio';
+  }
+  // Validar otra_discapacidad solo si nombre_discapacidad es "Otra"
+  if (formData.nombre_discapacidad === 'Otra' && !formData.otra_discapacidad.trim()) {
+    newErrors.otra_discapacidad = 'Campo obligatorio';
   }
   if (!formData.estado_civil) newErrors.estado_civil = 'Campo obligatorio';
   if (!formData.nombre_persona_a_cargo.trim()) newErrors.nombre_persona_a_cargo = 'Campo obligatorio';
@@ -137,7 +140,7 @@ export const validateField = (field, value, errors) => {
     case 'segundo_apellido':
       if (!validarNombreApellido(value)) {
         isValid = false;
-        newErrors[field] = 'Solo se permiten letras y espacios (máximo 60 caracteres)';
+        newErrors[field] = 'Solo se permiten digitar letras(máximo 60 caracteres)';
       } else {
         delete newErrors[field];
       }
@@ -146,7 +149,7 @@ export const validateField = (field, value, errors) => {
     case 'identificacion':
       if (!validarIdentificacion(value)) {
         isValid = false;
-        newErrors[field] = 'Solo números (máximo 10 dígitos)';
+        newErrors[field] = 'Solo digite números (máximo 10 dígitos)';
       } else {
         delete newErrors[field];
       }
@@ -155,7 +158,7 @@ export const validateField = (field, value, errors) => {
     case 'telefono':
       if (!validarTelefono(value)) {
         isValid = false;
-        newErrors[field] = 'Formato inválido. Use números, espacios y opcionalmente + al inicio';
+        newErrors[field] = 'Formato inválido. Use solo números y opcionalmente + al inicio';
       } else {
         delete newErrors[field];
       }
@@ -166,10 +169,10 @@ export const validateField = (field, value, errors) => {
     case 'epsIps':
     case 'nombrePadre':
     case 'nombreMadre':
-    case 'otraDiscapacidad':
+    case 'otra_discapacidad':
       if (!validarAlfabetico(value)) {
         isValid = false;
-        newErrors[field] = 'Solo se permiten letras y espacios';
+        newErrors[field] = 'Solo se permiten digitar letras';
       } else {
         delete newErrors[field];
       }

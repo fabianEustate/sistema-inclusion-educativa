@@ -4,7 +4,8 @@ import { Button } from 'primereact/button';
 import { Divider } from 'primereact/divider';
 import { Calendar } from 'primereact/calendar';
 import DireccionModal from './direccion-modal-component';
-import styles from './HistoriaDiscapacidad.module.css';
+import styles from './styleshistoria/HistoriaDiscapacidad.module.css';
+import DescargarPDFDiscapacidad from './DescargarPDFDiscapacidad';
 import { 
   validateForm, 
   validateField, 
@@ -24,8 +25,8 @@ const HistoriadeDiscapacidad = () => {
     id_direccion: '',
     con_quien_vive: '',
     telefono: '',
-    tipoDiscapacidad: '',
-    otraDiscapacidad: '',
+    nombre_discapacidad: '',
+    otra_discapacidad: '',
     estado_civil: '',
     nombre_persona_a_cargo: '',
     epsIps: '',
@@ -190,8 +191,8 @@ const HistoriadeDiscapacidad = () => {
       id_direccion: '',
       con_quien_vive: '',
       telefono: '',
-      tipoDiscapacidad: '',
-      otraDiscapacidad: '',
+      nombre_discapacidad: '',
+      otra_discapacidad: '',
       estado_civil: '',
       nombre_persona_a_cargo: '',
       epsIps: '',
@@ -442,29 +443,30 @@ const HistoriadeDiscapacidad = () => {
                 Tipo de Discapacidad: <span style={{color: 'red'}}>*</span>
               </label>
               <select
-                value={formData.tipoDiscapacidad}
-                onChange={(e) => handleInputChange('tipoDiscapacidad', e.target.value)}
-                className={`${styles.select} ${errors.tipoDiscapacidad ? styles.inputError : ''}`}
+                value={formData.nombre_discapacidad}
+                onChange={(e) => handleInputChange('nombre_discapacidad', e.target.value)}
+                className={`${styles.select} ${errors.nombre_discapacidad ? styles.inputError : ''}`}
               >
                 <option value="">Seleccione...</option>
                 {tiposDiscapacidad.map((tipo) => (
                   <option key={tipo} value={tipo}>{tipo}</option>
                 ))}
               </select>
-              {errors.tipoDiscapacidad && <span className={styles.errorText}>{errors.tipoDiscapacidad}</span>}
+              {errors.nombre_discapacidad && <span className={styles.errorText}>{errors.nombre_discapacidad}</span>}
               
-              {formData.tipoDiscapacidad === 'Otra' && (
+              {formData.nombre_discapacidad === 'Otra' && (
                 <>
                   <label className={styles.label} style={{marginTop: '12px'}}>
                     Especifique la discapacidad: <span style={{color: 'red'}}>*</span>
                   </label>
                   <input
                     type="text"
-                    value={formData.otraDiscapacidad}
-                    onChange={(e) => handleInputChange('otraDiscapacidad', e.target.value)}
-                    className={`${styles.input} ${errors.otraDiscapacidad ? styles.inputError : ''}`}
+                    value={formData.otra_discapacidad}
+                    onChange={(e) => handleInputChange('otra_discapacidad', e.target.value)}
+                    className={`${styles.input} ${errors.otra_discapacidad ? styles.inputError : ''}`}
+   
                   />
-                  {errors.otraDiscapacidad && <span className={styles.errorText}>{errors.otraDiscapacidad}</span>}
+                  {errors.otra_discapacidad && <span className={styles.errorText}>{errors.otra_discapacidad}</span>}
                 </>
               )}
             </div>
@@ -550,6 +552,7 @@ const HistoriadeDiscapacidad = () => {
           </div>
 
           <div className={styles.actions}>
+            <DescargarPDFDiscapacidad formData={formData} />
             <Button
               label="Guardar"
               icon="pi pi-save"
@@ -557,8 +560,8 @@ const HistoriadeDiscapacidad = () => {
               onClick={handleSubmit}
             />
             <Button
-              label="Cancelar"
-              icon="pi pi-times"
+              label="Limpiar"
+              icon="pi pi-trash"
               className="p-button-outlined"
               onClick={handleClear}
             />
