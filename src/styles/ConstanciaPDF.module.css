@@ -1,0 +1,327 @@
+/* ConstanciaPDF.module.css */
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 1rem;
+}
+
+.modalContent {
+  background: white;
+  border-radius: 8px;
+  width: 95%;
+  max-width: 900px;
+  max-height: 95vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.modalHeader h3 {
+  margin: 0;
+  color: #333;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.closeButton {
+  color: #666 !important;
+}
+
+.closeButton:hover {
+  color: #333 !important;
+  background-color: #f5f5f5 !important;
+}
+
+.pdfPreview {
+  flex: 1;
+  overflow: auto;
+  padding: 2rem;
+  background-color: #f5f5f5;
+}
+
+.pdfContainer {
+  background: white;
+  padding: 40px;
+  margin: 0 auto;
+  width: 216mm;
+  min-height: 279mm;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+/* Encabezado */
+.header {
+  display: grid;
+  grid-template-columns: 140px 1fr 180px;
+  border: 2px solid #000;
+  margin-bottom: 20px;
+}
+
+.logoContainer {
+  border-right: 2px solid #000;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.logo {
+  width: 100px !important;
+  height: 100px !important;
+  object-fit: contain;
+}
+
+.headerCenter {
+  border-right: 2px solid #000;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.universityName {
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.documentTitle {
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.headerRight {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 10px;
+}
+
+.codigo,
+.version,
+.pagina,
+.fecha {
+  padding: 4px 8px;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Contenido del formulario */
+.formContent {
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.formRow {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #000;
+}
+
+.fieldLabel {
+  font-weight: bold;
+  margin-right: 10px;
+  white-space: nowrap;
+}
+
+.fieldValue {
+  flex: 1;
+  min-height: 18px;
+}
+
+.checkbox {
+  margin-right: 20px;
+  white-space: nowrap;
+}
+
+/* Sección de observaciones */
+.observacionesSection {
+  margin: 20px 0 40px 0;
+}
+
+.observacionesContent {
+  border: 1px solid #000;
+  min-height: 150px;
+  padding: 10px;
+  margin-top: 8px;
+  white-space: pre-wrap;
+  line-height: 1.8;
+}
+
+/* Firmas */
+/* Firmas - CORREGIDO */
+.firmasSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  margin-top: 60px;
+  margin-bottom: 50px;
+  padding: 0 30px;
+}
+
+.firmaBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 60px;
+}
+
+.firmaLinea {
+  border-top: 1px solid #000000;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.firmaLabel {
+  font-weight: bold;
+  font-size: 10px;
+  text-align: center;
+  line-height: 1.4;
+  color: #000;
+}
+
+.firmaNombre {
+  font-size: 10px;
+  text-align: center;
+  color: #000000;
+  margin-top: 4px;
+  min-height: 16px;
+}
+
+.firmaBoxCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  margin: 40px auto 0 auto;
+  min-height: 60px;
+}
+
+.firmaBoxCenter .firmaLinea {
+  border-top: 1px solid #000;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.firmaBoxCenter .firmaLabel {
+  font-weight: bold;
+  font-size: 10px;
+  text-align: center;
+  line-height: 1.4;
+  color: #000;
+}
+
+.firmaBoxCenter .firmaNombre {
+  font-size: 10px;
+  text-align: center;
+  color: #000;
+  margin-top: 4px;
+  min-height: 16px;
+}
+/* Footer del modal */
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+.cancelButton {
+  background-color: white !important;
+  border: 1.5px solid #ddd !important;
+  color: #666 !important;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+}
+
+.cancelButton:hover {
+  background-color: #f5f5f5 !important;
+  border-color: #4CAF50 !important;
+  color: #4CAF50 !important;
+}
+
+.downloadButton {
+  background-color: #4CAF50 !important;
+  border: none !important;
+  color: white !important;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+}
+
+.downloadButton:hover {
+  background-color: #45a049 !important;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .pdfContainer {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .header {
+    grid-template-columns: 1fr;
+  }
+
+  .logoContainer,
+  .headerCenter {
+    border-right: none;
+    border-bottom: 2px solid #000;
+  }
+
+  .firmasSection {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 0 20px;
+  }
+
+  .firmaBoxCenter {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .modalContent {
+    width: 100%;
+    max-height: 100vh;
+    border-radius: 0;
+  }
+
+  .pdfPreview {
+    padding: 1rem;
+  }
+
+  .modalFooter {
+    flex-direction: column-reverse;
+  }
+
+  .cancelButton,
+  .downloadButton {
+    width: 100%;
+  }
+}

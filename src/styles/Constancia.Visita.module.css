@@ -13,7 +13,7 @@
   padding: 2rem;
 }
 
-/* Título principal */
+/* TÃ­tulo principal */
 .title {
   color: var(--green-primary);
   font-size: 1.75rem;
@@ -53,7 +53,7 @@
   gap: 0.5rem;
 }
 
-/* Campo pequeño - para fecha */
+/* Campo pequeÃ±o - para fecha */
 .fieldSmall {
   grid-column: span 1;
   display: flex;
@@ -83,29 +83,201 @@
   margin-left: 0.25rem;
 }
 
+/* Texto de error */
+.errorText {
+  color: #e74c3c;
+  font-size: 0.85rem;
+  font-family: var(--font-family);
+  margin-top: 0.25rem;
+  display: block;
+}
+
 /* Inputs */
 .input {
   width: 100%;
   font-family: var(--font-family);
 }
 
-/* Input de fecha más pequeño */
-.inputDate {
-  width: 100%;
-  font-family: var(--font-family);
+.input:hover {
+  border-color: var(--green-primary) !important;
 }
 
-/* Input de hora más pequeño */
+.input:focus {
+  border-color: var(--green-primary) !important;
+  box-shadow: 0 0 0 0.2rem rgba(76, 175, 80, 0.25) !important;
+}
+
+/* Hover y Focus para todos los inputs de PrimeReact */
+.container :global(.p-inputtext:enabled:hover) {
+  border-color: var(--green-primary) !important;
+}
+
+.container :global(.p-inputtext:enabled:focus) {
+  border-color: var(--green-primary) !important;
+  box-shadow: 0 0 0 0.2rem rgba(76, 175, 80, 0.25) !important;
+}
+
+.container :global(.p-inputtextarea:enabled:hover) {
+  border-color: var(--green-primary) !important;
+}
+
+.container :global(.p-inputtextarea:enabled:focus) {
+  border-color: var(--green-primary) !important;
+  box-shadow: 0 0 0 0.2rem rgba(76, 175, 80, 0.25) !important;
+}
+
+.container :global(.p-calendar:not(.p-calendar-disabled):hover > .p-inputtext) {
+  border-color: var(--green-primary) !important;
+}
+
+.container :global(.p-calendar:not(.p-calendar-disabled).p-focus > .p-inputtext) {
+  border-color: var(--green-primary) !important;
+  box-shadow: 0 0 0 0.2rem rgba(76, 175, 80, 0.25) !important;
+}
+
+
+/* Input de hora mÃ¡s pequeÃ±o */
 .inputTime {
   width: 100%;
   font-family: var(--font-family);
 }
 
+/* Estilos para MUI TimePicker */
+.muiTimePicker {
+  width: 100%;
+}
+
+.muiTimePicker :global(.MuiOutlinedInput-root) {
+  font-family: var(--font-family);
+  border-radius: 6px;
+  transition: border-color 0.2s ease;
+}
+
+.muiTimePicker :global(.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline) {
+  border-color: var(--green-primary) !important;
+}
+
+.muiTimePicker :global(.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline) {
+  border-color: var(--green-primary) !important;
+  box-shadow: 0 0 0 0.2rem rgba(76, 175, 80, 0.25);
+}
+
+.muiTimePicker :global(.MuiOutlinedInput-root.Mui-error:hover .MuiOutlinedInput-notchedOutline) {
+  border-color: #e74c3c !important;
+}
+
+.muiTimePicker :global(.MuiOutlinedInput-root.Mui-error .MuiOutlinedInput-notchedOutline) {
+  border-color: #e74c3c !important;
+}
+
+.muiTimePicker :global(.MuiInputAdornment-root .MuiIconButton-root) {
+  color: var(--green-primary) !important;
+  transition: all 0.2s ease;
+}
+
+.muiTimePicker :global(.MuiInputAdornment-root .MuiIconButton-root:hover) {
+  background-color: var(--green-primary) !important;
+  color: white !important;
+}
+
+/* Estilos del modal del TimePicker */
+.container :global(.MuiDialog-root .MuiClock-root) {
+  background-color: #f5f5f5;
+}
+
+.container :global(.MuiDialog-root .MuiClockNumber-root:hover) {
+  background-color: rgba(76, 175, 80, 0.2) !important;
+}
+
+.container :global(.MuiDialog-root .MuiPickersToolbar-root) {
+  background-color: var(--green-primary) !important;
+}
+
+.container :global(.MuiDialog-root .MuiPickersToolbar-root .MuiTypography-root) {
+  color: white !important;
+}
+
+/* Estilos mejorados para input type="time" */
+.input[type="time"] {
+  padding: 0.75rem;
+  font-size: 1rem;
+  cursor: pointer;
+  color-scheme: light;
+}
+
+.input[type="time"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: invert(48%) sepia(79%) saturate(500%) hue-rotate(86deg) brightness(95%) contrast(92%);
+  opacity: 0.8;
+  transition: all 0.2s ease;
+}
+
+.input[type="time"]::-webkit-calendar-picker-indicator:hover {
+  filter: invert(38%) sepia(79%) saturate(700%) hue-rotate(86deg) brightness(95%) contrast(92%);
+  opacity: 1;
+}
+
+.input[type="time"]:focus {
+  border-color: var(--green-primary) !important;
+  box-shadow: 0 0 0 0.2rem rgba(76, 175, 80, 0.25) !important;
+}
+
+/* Intentar estilizar las opciones seleccionadas en el dropdown */
+.input[type="time"]::-webkit-datetime-edit-hour-field:focus,
+.input[type="time"]::-webkit-datetime-edit-minute-field:focus,
+.input[type="time"]::-webkit-datetime-edit-ampm-field:focus {
+  background-color: var(--green-primary);
+  color: white;
+  border-radius: 4px;
+  padding: 2px 4px;
+}
+
+.input[type="time"]::-webkit-datetime-edit-hour-field,
+.input[type="time"]::-webkit-datetime-edit-minute-field,
+.input[type="time"]::-webkit-datetime-edit-ampm-field {
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.input[type="time"]::-webkit-datetime-edit-text {
+  padding: 0 4px;
+  color: var(--text);
+}
+
 /* Wrapper para fecha con formato */
 .dateWrapper {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  flex-direction: row;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+/* Ocultar el input del calendario pero mantener el Ã­cono */
+.inputDate :global(.p-inputtext) {
+  display: none;
+}
+
+.inputDate :global(.p-datepicker-trigger) {
+  background-color: var(--green-primary);
+  border: none;
+  color: white;
+  padding: 0.5rem 0.75rem;
+  transition: background-color 0.2s ease;
+  width: auto;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.inputDate :global(.p-datepicker-trigger:hover) {
+  background-color: var(--green-secondary);
+}
+
+.inputDate.p-invalid :global(.p-datepicker-trigger) {
+  border: 2px solid #e74c3c;
 }
 
 /* Fecha formateada */
@@ -119,9 +291,11 @@
   font-size: 0.9rem;
   font-weight: 500;
   text-align: center;
+  flex: 1;
+  min-width: 180px;
 }
 
-/* Contenedor de dirección */
+/* Contenedor de direcciÃ³n */
 .direccionContainer {
   display: flex;
   gap: 1rem;
@@ -137,6 +311,12 @@
   display: flex;
   align-items: center;
   min-height: 50px;
+  transition: border-color 0.2s ease;
+}
+
+.direccionDisplay.direccionError {
+  border-color: #e74c3c;
+  background-color: #fff5f5;
 }
 
 .direccionText {
@@ -185,6 +365,14 @@
   gap: 2rem;
   align-items: center;
   padding: 0.5rem 0;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.radioGroup.radioGroupError {
+  background-color: #fff5f5;
+  border: 1px solid #e74c3c;
+  padding: 0.75rem;
 }
 
 .radioItem {
@@ -208,7 +396,7 @@
   margin-top: 1.5rem;
 }
 
-/* Botón guardar */
+/* BotÃ³n guardar */
 .saveButton {
   background-color: var(--green-primary) !important;
   border: none !important;
@@ -223,7 +411,7 @@
   background-color: var(--green-secondary) !important;
 }
 
-/* Botón cancelar */
+/* BotÃ³n cancelar */
 .cancelButton {
   background-color: var(--white) !important;
   border: 1.5px solid var(--border) !important;
@@ -240,7 +428,51 @@
   color: var(--green-primary) !important;
 }
 
-/* Responsive: tablets y móviles */
+/* Wrapper para estilos globales */
+.container :global(.p-invalid) {
+  border-color: #e74c3c !important;
+}
+
+.container :global(.p-invalid:focus) {
+  border-color: #e74c3c !important;
+  box-shadow: 0 0 0 0.2rem rgba(231, 76, 60, 0.25) !important;
+}
+
+/* Estilos para RadioButton - color verde */
+/* Estado normal */
+.radioItem :global(.p-radiobutton .p-radiobutton-box) {
+  border-color: #ced4da !important;
+}
+
+/* Estado seleccionado - VERDE */
+.radioItem :global(.p-radiobutton .p-radiobutton-box.p-highlight) {
+  border-color: var(--green-primary) !important;
+  background-color: var(--green-primary) !important;
+}
+
+/* Hover sobre el item completo (texto + cÃ­rculo) */
+.radioItem:hover :global(.p-radiobutton .p-radiobutton-box) {
+  border-color: var(--green-primary) !important;
+}
+
+/* Hover sobre radio button seleccionado */
+.radioItem:hover :global(.p-radiobutton .p-radiobutton-box.p-highlight) {
+  border-color: var(--green-secondary) !important;
+  background-color: var(--green-secondary) !important;
+}
+
+/* Focus */
+.radioItem :global(.p-radiobutton .p-radiobutton-box.p-focus) {
+  box-shadow: 0 0 0 0.2rem rgba(76, 175, 80, 0.25) !important;
+  border-color: var(--green-primary) !important;
+}
+
+/* Punto interior blanco cuando estÃ¡ seleccionado */
+.radioItem :global(.p-radiobutton-icon) {
+  background-color: white !important;
+}
+
+/* Responsive: tablets y mÃ³viles */
 @media (max-width: 768px) {
   .container {
     padding: 1rem;
@@ -314,6 +546,15 @@ html[data-theme='dark'] .direccionDisplay {
   border-color: var(--border);
 }
 
+html[data-theme='dark'] .direccionDisplay.direccionError {
+  background-color: #3d2626;
+  border-color: #e74c3c;
+}
+
 html[data-theme='dark'] .direccionText {
   color: var(--text);
+}
+
+html[data-theme='dark'] .radioGroup.radioGroupError {
+  background-color: #3d2626;
 }
