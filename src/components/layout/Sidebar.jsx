@@ -8,21 +8,25 @@ import styles from './Sidebar.module.css';
 export default function Sidebar({ collapsed }) {
   const pathname = usePathname();
 
+  // Estados para submenús
   const [showStudentsSubmenu, setShowStudentsSubmenu] = useState(false);
   const [showEventsSubmenu, setShowEventsSubmenu] = useState(false);
   const [showNewsSubmenu, setShowNewsSubmenu] = useState(false);
+  const [showUsersSubmenu, setShowUsersSubmenu] = useState(false);
 
-  // 🔹 Abre automáticamente el submenú según la ruta actual
+  // 🔹 Abre automáticamente los submenús según la ruta actual
   useEffect(() => {
     if (pathname.startsWith('/dashboard/estudiantes')) setShowStudentsSubmenu(true);
     if (pathname.startsWith('/dashboard/eventos')) setShowEventsSubmenu(true);
     if (pathname.startsWith('/dashboard/noticias')) setShowNewsSubmenu(true);
+    if (pathname.startsWith('/dashboard/usuarios')) setShowUsersSubmenu(true);
   }, [pathname]);
 
   const menuItems = [
     { label: 'Dashboard', icon: 'pi pi-home', path: '/dashboard' },
     { label: 'Analytics', icon: 'pi pi-chart-line', path: '/dashboard/analytics' },
     { label: 'Agenda', icon: 'pi pi-calendar-clock', path: '/dashboard/agenda' },
+    { label: 'Reporte', icon: 'pi pi-file', path: '/dashboard/reporte' },
   ];
 
   const studentSubmenu = [
@@ -43,6 +47,11 @@ export default function Sidebar({ collapsed }) {
   const newsSubmenu = [
     { label: 'Lista de noticias', path: '/dashboard/noticias/lista' },
     { label: 'Crear noticia', path: '/dashboard/noticias/crear' },
+  ];
+
+  const usersSubmenu = [
+    { label: 'Crear usuario', path: '/dashboard/usuarios/crear' },
+    { label: 'Lista de usuarios', path: '/dashboard/usuarios/lista' },
   ];
 
   return (
@@ -75,9 +84,7 @@ export default function Sidebar({ collapsed }) {
             const isActive = pathname === item.path;
             return (
               <Link key={idx} href={item.path} passHref>
-                <div
-                  className={`${styles.menuItem} ${isActive ? styles.active : ''}`}
-                >
+                <div className={`${styles.menuItem} ${isActive ? styles.active : ''}`}>
                   <i className={`${item.icon} ${styles.icon}`}></i>
                   {!collapsed && <span>{item.label}</span>}
                 </div>
@@ -86,123 +93,84 @@ export default function Sidebar({ collapsed }) {
           })}
 
           {/* ===== ESTUDIANTES ===== */}
-          <div
-            className={`${styles.menuItem} ${styles.expandable}`}
+          <ExpandableMenu
+            collapsed={collapsed}
+            label="Estudiantes"
+            icon="pi pi-graduation-cap"
+            isOpen={showStudentsSubmenu}
             onClick={() => setShowStudentsSubmenu(!showStudentsSubmenu)}
-          >
-            <div className={styles.menuLabel}>
-              <i className={`pi pi-graduation-cap ${styles.icon}`}></i>
-              {!collapsed && <span>Estudiantes</span>}
-            </div>
-            {!collapsed && (
-              <i
-                className={`pi ${
-                  showStudentsSubmenu ? 'pi-chevron-down' : 'pi-chevron-right'
-                } ${styles.arrowIcon}`}
-              ></i>
-            )}
-          </div>
-
-          <div
-            className={`${styles.submenu} ${
-              showStudentsSubmenu && !collapsed ? styles.open : ''
-            }`}
-          >
-            {studentSubmenu.map((sub, index) => {
-              const isSubActive = pathname === sub.path;
-              return (
-                <Link key={index} href={sub.path} passHref>
-                  <div
-                    className={`${styles.submenuItem} ${
-                      isSubActive ? styles.subActive : ''
-                    }`}
-                  >
-                    {sub.label}
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
+            submenu={studentSubmenu}
+            pathname={pathname}
+          />
 
           {/* ===== EVENTOS ===== */}
-          <div
-            className={`${styles.menuItem} ${styles.expandable}`}
+          <ExpandableMenu
+            collapsed={collapsed}
+            label="Eventos"
+            icon="pi pi-calendar"
+            isOpen={showEventsSubmenu}
             onClick={() => setShowEventsSubmenu(!showEventsSubmenu)}
-          >
-            <div className={styles.menuLabel}>
-              <i className={`pi pi-calendar ${styles.icon}`}></i>
-              {!collapsed && <span>Eventos</span>}
-            </div>
-            {!collapsed && (
-              <i
-                className={`pi ${
-                  showEventsSubmenu ? 'pi-chevron-down' : 'pi-chevron-right'
-                } ${styles.arrowIcon}`}
-              ></i>
-            )}
-          </div>
-
-          <div
-            className={`${styles.submenu} ${
-              showEventsSubmenu && !collapsed ? styles.open : ''
-            }`}
-          >
-            {eventsSubmenu.map((sub, index) => {
-              const isSubActive = pathname === sub.path;
-              return (
-                <Link key={index} href={sub.path} passHref>
-                  <div
-                    className={`${styles.submenuItem} ${
-                      isSubActive ? styles.subActive : ''
-                    }`}
-                  >
-                    {sub.label}
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
+            submenu={eventsSubmenu}
+            pathname={pathname}
+          />
 
           {/* ===== NOTICIAS ===== */}
-          <div
-            className={`${styles.menuItem} ${styles.expandable}`}
+          <ExpandableMenu
+            collapsed={collapsed}
+            label="Noticias"
+            icon="pi pi-megaphone"
+            isOpen={showNewsSubmenu}
             onClick={() => setShowNewsSubmenu(!showNewsSubmenu)}
-          >
-            <div className={styles.menuLabel}>
-              <i className={`pi pi-megaphone ${styles.icon}`}></i>
-              {!collapsed && <span>Noticias</span>}
-            </div>
-            {!collapsed && (
-              <i
-                className={`pi ${
-                  showNewsSubmenu ? 'pi-chevron-down' : 'pi-chevron-right'
-                } ${styles.arrowIcon}`}
-              ></i>
-            )}
-          </div>
+            submenu={newsSubmenu}
+            pathname={pathname}
+          />
 
-          <div
-            className={`${styles.submenu} ${
-              showNewsSubmenu && !collapsed ? styles.open : ''
-            }`}
-          >
-            {newsSubmenu.map((sub, index) => {
-              const isSubActive = pathname === sub.path;
-              return (
-                <Link key={index} href={sub.path} passHref>
-                  <div
-                    className={`${styles.submenuItem} ${
-                      isSubActive ? styles.subActive : ''
-                    }`}
-                  >
-                    {sub.label}
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
+          {/* ===== USUARIOS ===== */}
+          <ExpandableMenu
+            collapsed={collapsed}
+            label="Usuarios"
+            icon="pi pi-users"
+            isOpen={showUsersSubmenu}
+            onClick={() => setShowUsersSubmenu(!showUsersSubmenu)}
+            submenu={usersSubmenu}
+            pathname={pathname}
+          />
         </nav>
       </ScrollPanel>
     </aside>
+  );
+}
+
+/* ===== COMPONENTE REUTILIZABLE DE SUBMENÚ ===== */
+function ExpandableMenu({ collapsed, label, icon, isOpen, onClick, submenu, pathname }) {
+  return (
+    <>
+      <div className={`${styles.menuItem} ${styles.expandable}`} onClick={onClick}>
+        <div className={styles.menuLabel}>
+          <i className={`${icon} ${styles.icon}`}></i>
+          {!collapsed && <span>{label}</span>}
+        </div>
+        {!collapsed && (
+          <i
+            className={`pi ${isOpen ? 'pi-chevron-down' : 'pi-chevron-right'} ${styles.arrowIcon}`}
+          ></i>
+        )}
+      </div>
+
+      <div className={`${styles.submenu} ${isOpen && !collapsed ? styles.open : ''}`}>
+        {submenu.map((sub, index) => {
+          const isSubActive = pathname === sub.path;
+          return (
+            <Link key={index} href={sub.path} passHref>
+              <div
+                className={`${styles.submenuItem} ${isSubActive ? styles.subActive : ''}`}
+              >
+                {sub.label}
+              </div>
+            </Link>
+          );
+        })}
+      </div>
+    </>
   );
 }
