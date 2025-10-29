@@ -1,9 +1,20 @@
-export default nextConfig;
+// next.config.mjs
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    appDir: true,
+    appDir: true
   },
-};
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/public/inicio',
+        permanent: false
+      }
+    ]
+  }
+}
 
-module.exports = nextConfig;
+export default nextConfig
