@@ -15,7 +15,6 @@ import { MobileTimePicker } from '@mui/x-date-pickers/MobileTimePicker';
 import { ThemeProvider, createTheme } from '@mui/material/styles';import dayjs from 'dayjs';
 import 'dayjs/locale/es';
 import DireccionModal from './direccion-modal-component';
-import ConstanciaPDF from './constancia-pdf';
 import { formatearFecha } from '../../../../../components/common/date-formatter-component';
 import styles from '../../../../../styles/Constancia.Visita.module.css';
 
@@ -127,8 +126,6 @@ export default function VisitaDomiciliariaPage() {
   const [showErrorMessage, setShowErrorMessage] = useState(false);
   const [touched, setTouched] = useState({});
   const [programasDisponibles, setProgramasDisponibles] = useState([]);
-  const [showPDFModal, setShowPDFModal] = useState(false);
-
   // Función para validar que solo contenga letras, espacios y acentos
   const soloLetras = (texto) => {
     const regex = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]*$/;
@@ -451,8 +448,8 @@ export default function VisitaDomiciliariaPage() {
     setErrors({});
     setShowErrorMessage(false);
     
-    // Abrir modal de PDF
-    setShowPDFModal(true);
+    // TODO: Implementar lógica de guardado
+    console.log('Datos guardados:', { ...formData, direccion: direccionData });
   };
 
   const handleCancelar = () => {
@@ -881,18 +878,6 @@ export default function VisitaDomiciliariaPage() {
             onSave={handleSaveDireccion}
             direccionInicial={direccionData}
           />
-          {showPDFModal && (
-            <ConstanciaPDF
-              data={{
-                ...formData,
-                direccion: direccionData,
-                fecha_visita: formData.fecha_visita ? formatearFecha(formData.fecha_visita) : '',
-                hora_inicio: formData.hora_inicio ? formData.hora_inicio.format('hh:mm A') : '',
-                hora_fin: formData.hora_fin ? formData.hora_fin.format('hh:mm A') : ''
-              }}
-              onClose={() => setShowPDFModal(false)}
-            />
-          )}
         </div>
       </LocalizationProvider>
     </ThemeProvider>
