@@ -90,15 +90,15 @@
 .gridTwoColumns {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .gridThreeColumns {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .gridSingleColumn {
@@ -117,12 +117,14 @@
   flex-direction: column;
   gap: 0.5rem;
 }
+
 .passfield {
   display: flex;
   flex-direction: column;
   max-width: 200px;
   font-family: var(--font-family);
 }
+
 .label {
   font-weight: 500;
   color: var(--text);
@@ -163,6 +165,31 @@
   font-size: 0.85rem;
   margin-top: 0.25rem;
   font-family: var(--font-family);
+}
+
+/* ============ CAMPO DE TELÉFONO CON PREFIJO ============ */
+.phoneField {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.phoneInputContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.phonePrefix {
+  font-weight: 500;
+  color: var(--text);
+  font-size: 0.95rem;
+  font-family: var(--font-family);
+  padding: 0.5rem;
+  background-color: #f5f5f5;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  white-space: nowrap;
 }
 
 /* ============ CONTENEDOR DE BOTONES ============ */
@@ -254,6 +281,10 @@
   .gridSingleColumn {
     max-width: 100%;
   }
+
+  .phoneInputContainer {
+    flex-direction: row;
+  }
 }
 
 /* ============ COMPATIBILIDAD CON MODO OSCURO ============ */
@@ -283,4 +314,10 @@ html[data-theme='dark'] .photoPlaceholder {
 
 html[data-theme='dark'] .fileUploadHint {
   color: #aaa;
+}
+
+html[data-theme='dark'] .phonePrefix {
+  background-color: #2b2b2b;
+  border-color: #444;
+  color: var(--text);
 }
