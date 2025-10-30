@@ -1,0 +1,87 @@
+.container {
+  padding: 2rem;
+  color: var(--green-primary);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.header h2 {
+  color: var(--green-primary);
+  margin: 0;
+  font-weight: 600;
+}
+
+.card {
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+}
+
+.formGrid,
+.fieldGroup {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 200px;
+  margin-bottom: 1rem; 
+}
+
+.fieldWide {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.required-field:after {
+  content: " *";
+  color: var(--red-500);
+}
+
+.p-error {
+  color: var(--red-500);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.p-invalid {
+  border-color: var(--red-500) !important;
+}
+
+/* Hover de botones dentro de esta página */
+.container :global(.p-button:hover) {
+  background: #6fb71f;
+  border-color: #6fb71f;
+}
+
+/* Solo columna seleccionada (orden activa) en verde */
+.container :global(.p-datatable .p-sortable-column.p-highlight),
+.container :global(.p-datatable .p-sortable-column.p-highlight .p-column-title),
+.container :global(.p-datatable .p-sortable-column.p-highlight .p-sortable-column-icon) {
+  color: var(--green-primary) !important;
+}
+

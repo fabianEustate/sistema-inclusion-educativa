@@ -82,3 +82,78 @@
 .fileUpload :global(.p-fileupload-choose:not(.p-disabled):hover) {
     background: var(--primary-dark-color);
 }
+
+.checkmark {
+    color: var(--green-primary);
+    font-weight: bold;
+    margin-left: 0.5rem;
+    font-size: 1.2rem;
+}
+.pdfPlaceholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.pdfPlaceholder small {
+  font-size: 0.75rem;
+  color: var(--gray-alpha-600);
+  word-break: break-word;
+  max-width: 100%;
+}
+.uploadButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background:var(--green-primary);
+ 
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: background 0.2s;
+  border: none;
+  margin-bottom: 0.5rem;
+}
+
+.uploadButton:hover {
+  background:   #6fb71f ;
+
+}
+
+.clearButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
+}
+
+.clearButton:hover {
+  background: #dc2626;
+}
+
+.photoControls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.helperText {
+  color: var(--gray-alpha-600);
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
