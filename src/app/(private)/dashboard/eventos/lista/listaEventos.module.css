@@ -1,0 +1,274 @@
+/* Contenedor principal */
+.contenedor {
+  padding: 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f4f9;
+  min-height: 100vh;
+}
+
+/* Tarjeta contenedora */
+.tarjeta {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Toolbar */
+.toolbar {
+  background: #ffffff;
+  border-bottom: 1px solid #e9ecef;
+  padding: 1rem 1.5rem;
+}
+
+.toolbar :global(.p-toolbar-group-left),
+.toolbar :global(.p-toolbar-group-right) {
+  gap: 0.5rem;
+}
+
+/* Botones del toolbar */
+.botonNuevo {
+  background: linear-gradient(135deg, #43b028 0%, #6fb71f 100%);
+  border: none;
+  color: #ffffff;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.botonNuevo:hover {
+  background: linear-gradient(135deg, #6fb71f 0%, #43b028 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(67, 176, 40, 0.4);
+}
+
+.botonNuevo:focus {
+  box-shadow: 0 0 0 0.2rem rgba(67, 176, 40, 0.3);
+}
+
+.botonExportar {
+  background: #ffffff;
+  border: 2px solid #43b028;
+  color: #43b028;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.botonExportar:hover {
+  background: #43b028;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(67, 176, 40, 0.3);
+}
+
+/* Header de la tabla */
+.headerTabla {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  background: #ffffff;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.titulo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.busqueda {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.busqueda i {
+  position: absolute;
+  left: 1rem;
+  color: #7f8c8d;
+}
+
+.busqueda input {
+  padding-left: 2.5rem;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  font-family: 'Poppins', sans-serif;
+  min-width: 300px;
+  transition: all 0.2s ease;
+}
+
+.busqueda input:hover {
+  border-color: #43b028;
+}
+
+.busqueda input:focus {
+  border-color: #43b028;
+  box-shadow: 0 0 0 0.2rem rgba(67, 176, 40, 0.25);
+  outline: none;
+}
+
+/* Tabla */
+.tabla {
+  font-family: 'Poppins', sans-serif;
+}
+
+.tabla :global(.p-datatable-header) {
+  background: #ffffff;
+  border: none;
+  padding: 0;
+}
+
+.tabla :global(.p-datatable-thead > tr > th) {
+  background: #f8f9fa;
+  color: #2c3e50;
+  font-weight: 600;
+  padding: 1rem;
+  border-bottom: 2px solid #43b028;
+  font-family: 'Poppins', sans-serif;
+}
+
+.tabla :global(.p-datatable-tbody > tr) {
+  transition: all 0.2s ease;
+}
+
+.tabla :global(.p-datatable-tbody > tr:hover) {
+  background: rgba(67, 176, 40, 0.05);
+}
+
+.tabla :global(.p-datatable-tbody > tr > td) {
+  padding: 1rem;
+  font-family: 'Poppins', sans-serif;
+  color: #495057;
+}
+
+.tabla :global(.p-paginator) {
+  background: #f8f9fa;
+  border-top: 1px solid #dee2e6;
+  padding: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.tabla :global(.p-paginator .p-paginator-pages .p-paginator-page.p-highlight) {
+  background: #43b028;
+  border-color: #43b028;
+  color: #ffffff;
+}
+
+.tabla :global(.p-paginator .p-paginator-pages .p-paginator-page:hover) {
+  background: rgba(67, 176, 40, 0.1);
+  border-color: #43b028;
+  color: #43b028;
+}
+
+/* Badge personalizado */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  background: #e8f5e3;
+  color: #43b028;
+  font-weight: 500;
+  font-size: 0.875rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Contenedor de acciones */
+.accionesContainer {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.botonVer {
+  color: #3498db;
+  border-color: #3498db;
+  transition: all 0.2s ease;
+}
+
+.botonVer:hover {
+  background: #3498db;
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.botonEditar {
+  color: #43b028;
+  border-color: #43b028;
+  transition: all 0.2s ease;
+}
+
+.botonEditar:hover {
+  background: #43b028;
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+/* Estilos para Tags de PrimeReact */
+.tarjeta :global(.p-tag) {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  padding: 0.35rem 0.75rem;
+}
+
+.tarjeta :global(.p-tag.p-tag-success) {
+  background: #43b028;
+}
+
+.tarjeta :global(.p-tag.p-tag-info) {
+  background: #3498db;
+}
+
+.tarjeta :global(.p-tag.p-tag-warning) {
+  background: #f39c12;
+}
+
+.tarjeta :global(.p-tag.p-tag-danger) {
+  background: #e74c3c;
+}
+
+.tarjeta :global(.p-tag.p-tag-primary) {
+  background: #6fb71f;
+}
+
+/* Estilos para el diálogo de confirmación */
+.contenedor :global(.p-confirm-dialog) {
+  font-family: 'Poppins', sans-serif;
+}
+
+.contenedor :global(.p-confirm-dialog .p-dialog-header) {
+  background: #f8f9fa;
+  border-bottom: 2px solid #43b028;
+}
+
+.contenedor :global(.p-confirm-dialog .p-dialog-content) {
+  padding: 2rem;
+}
+
+.contenedor :global(.p-confirm-dialog .p-confirm-dialog-icon) {
+  color: #f39c12;
+  font-size: 2rem;
+}
+
+.contenedor :global(.p-confirm-dialog .p-button) {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+.contenedor :global(.p-confirm-dialog .p-button.p-button-danger) {
+  background: #e74c3c;
+  border-color: #e74c3c;
+}
+
+.contenedor :global(.p-confirm-dialog .p-button.p-button-danger:hover) {
+  background: #c0392b;
+  border-color: #c0392b;
+}

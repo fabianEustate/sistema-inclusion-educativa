@@ -1,0 +1,286 @@
+/* ============ CONTENEDOR PRINCIPAL ============ */
+.container {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ============ CARD ============ */
+.card {
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: 2rem;
+}
+
+/* ============ TÍTULOS ============ */
+.title {
+  color: var(--green-primary);
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  font-family: var(--font-family);
+}
+
+.sectionTitle {
+  color: var(--green-secondary);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 1.5rem 0;
+  font-family: var(--font-family);
+}
+
+/* ============ SECCIONES ============ */
+.section {
+  margin-bottom: 2rem;
+}
+
+/* ============ SECCIÓN DE FOTO ============ */
+.photoSection {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.photoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.photoCircle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px dashed var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #fafafa;
+}
+
+.photoPreview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photoPlaceholder {
+  color: #999;
+  font-size: 0.9rem;
+  font-family: var(--font-family);
+  letter-spacing: 1px;
+}
+
+.fileUpload {
+  font-family: var(--font-family);
+}
+
+.fileUploadHint {
+  font-size: 0.85rem;
+  color: #666;
+  text-align: center;
+  font-family: var(--font-family);
+  line-height: 1.4;
+}
+
+/* ============ GRIDS ============ */
+.gridTwoColumns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.gridThreeColumns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.gridSingleColumn {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ============ CAMPOS DEL FORMULARIO ============ */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.passfield {
+  display: flex;
+  flex-direction: column;
+  max-width: 200px;
+  font-family: var(--font-family);
+}
+.label {
+  font-weight: 500;
+  color: var(--text);
+  font-size: 0.95rem;
+  font-family: var(--font-family);
+}
+
+.required {
+  color: #e74c3c;
+  font-weight: 600;
+}
+
+.input {
+  width: 100%;
+  font-family: var(--font-family);
+}
+
+/* Inputs con ancho reducido */
+.inputSmall {
+  width: 100%;
+  max-width: 350px;
+  font-family: var(--font-family);
+}
+
+/* Ancho medio para ciertos campos */
+.inputMedium {
+  width: 100%;
+  max-width: 280px;
+  font-family: var(--font-family);
+}
+
+.inputError {
+  border-color: #e74c3c !important;
+}
+
+.errorText {
+  color: #e74c3c;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  font-family: var(--font-family);
+}
+
+/* ============ CONTENEDOR DE BOTONES ============ */
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* ============ BOTONES ============ */
+.saveButton {
+  background-color: var(--green-primary) !important;
+  border: none !important;
+  color: white !important;
+  font-weight: 500;
+  padding: 0.75rem 2rem;
+  font-family: var(--font-family);
+  transition: background-color 0.2s ease;
+}
+
+.saveButton:hover:not(:disabled) {
+  background-color: var(--green-secondary) !important;
+}
+
+.saveButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.cancelButton {
+  background-color: #6c757d !important;
+  border: none !important;
+  color: white !important;
+  font-weight: 500;
+  padding: 0.75rem 2rem;
+  font-family: var(--font-family);
+  transition: background-color 0.2s ease;
+}
+
+.cancelButton:hover {
+  background-color: #5a6268 !important;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1024px) {
+  .gridThreeColumns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.1rem;
+  }
+
+  .gridTwoColumns,
+  .gridThreeColumns {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .photoCircle {
+    width: 120px;
+    height: 120px;
+  }
+
+  .buttonContainer {
+    flex-direction: column-reverse;
+  }
+
+  .saveButton,
+  .cancelButton {
+    width: 100%;
+  }
+
+  .gridSingleColumn {
+    max-width: 100%;
+  }
+}
+
+/* ============ COMPATIBILIDAD CON MODO OSCURO ============ */
+html[data-theme='dark'] .card {
+  background-color: var(--white);
+  color: var(--text);
+}
+
+html[data-theme='dark'] .label {
+  color: var(--text);
+}
+
+html[data-theme='dark'] .input {
+  background-color: var(--white) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+html[data-theme='dark'] .photoCircle {
+  background-color: #2b2b2b;
+  border-color: #444;
+}
+
+html[data-theme='dark'] .photoPlaceholder {
+  color: #aaa;
+}
+
+html[data-theme='dark'] .fileUploadHint {
+  color: #aaa;
+}

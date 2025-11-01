@@ -1,4 +1,3 @@
-
 /* Contenedor principal */
 .container {
   padding: 2rem;
@@ -19,6 +18,7 @@
   margin: 0;
   font-weight: 600;
 }
+
 /* Título principal */
 .mainTitle {
   margin: 0 0 1.5rem 0;
@@ -52,8 +52,16 @@
 .gridTwoColumns {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+  gap: 1rem;
   margin-bottom: 1.5rem;
+  align-items: start; /* Cambiado de center a start */
+}
+
+/* Contenedor de columna individual con altura mínima */
+.gridTwoColumns > div {
+  min-height: 80px; /* Altura mínima para evitar saltos */
+  display: flex;
+  flex-direction: column;
 }
 
 /* Grid asimétrico (2fr 1fr) */
@@ -67,6 +75,7 @@
 /* Campo de formulario individual */
 .formField {
   margin-bottom: 1.5rem;
+  min-height: 80px; /* Altura mínima para campos que pueden expandirse */
 }
 
 /* Etiquetas */
@@ -88,6 +97,7 @@
   font-size: 1rem;
   font-family: 'Poppins', sans-serif;
   transition: border-color 0.2s;
+  box-sizing: border-box; /* Asegura que el padding no afecte el ancho */
 }
 
 .input:focus,
@@ -99,6 +109,22 @@
 
 .textarea {
   resize: vertical;
+}
+
+/* Estilos para inputs con error */
+.inputError {
+  border: 2px solid #ef4444 !important;
+  background-color: #fef2f2 !important;
+}
+
+/* Texto de error */
+.errorText {
+  display: block;
+  color: #ef4444;
+  font-size: 12px;
+  margin-top: 4px;
+  font-weight: 500;
+  min-height: 18px; /* Reserva espacio para mensajes de error */
 }
 
 /* Contenedor de botones */
@@ -141,9 +167,33 @@
 .buttonSave:hover {
   background-color: #6fb71f;
 }
+
 .actions {
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
   margin-top: 1.5rem;
+}
+
+/* Transiciones suaves para campos dinámicos */
+.gridTwoColumns > div,
+.formField {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Espaciado consistente para campos condicionales */
+.conditionalField {
+  margin-top: 1rem;
+  animation: slideDown 0.3s ease-in-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

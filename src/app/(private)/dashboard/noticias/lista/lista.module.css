@@ -1,0 +1,485 @@
+.container {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.title {
+    color: #43b028;
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.subtitle {
+    color: #333333;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    opacity: 0.8;
+    font-family: 'Poppins', sans-serif;
+}
+
+.divider {
+    height: 2px;
+    background: linear-gradient(90deg, #43b028, #6fb71f);
+    margin: 1.5rem 0;
+    border: none;
+}
+
+/* Filtros */
+.filtrosCard {
+    margin-bottom: 2rem;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #dddddd;
+}
+
+.filtrosContent {
+    padding: 1.5rem;
+}
+
+.filtrosTitle {
+    color: #43b028;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.filtrosGrid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr auto;
+    gap: 1rem;
+    align-items: end;
+}
+
+.filtroGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.filtroLabel {
+    font-weight: 600;
+    color: #333333;
+    font-size: 0.9rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.searchInput,
+.filtroDropdown {
+    width: 100%;
+}
+
+.limpiarButton {
+    background-color: #ffffff !important;
+    color: #333333 !important;
+    border: 1px solid #dddddd !important;
+    font-family: 'Poppins', sans-serif;
+}
+
+.limpiarButton:hover {
+    background-color: #f8f9fa !important;
+    border-color: #43b028 !important;
+}
+
+/* Header de resultados */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.resultadosTitle {
+    color: #43b028;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Tarjetas de noticias */
+.noticiaCard {
+    height: 100%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid #dddddd;
+    font-family: 'Poppins', sans-serif;
+}
+
+.noticiaCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.noticiaCardList {
+    margin-bottom: 1rem;
+    border: 1px solid #dddddd;
+    font-family: 'Poppins', sans-serif;
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+
+.listHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+
+.noticiaTitulo {
+    color: #43b028;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+    flex: 1;
+    font-family: 'Poppins', sans-serif;
+}
+
+.cardContent {
+    flex: 1;
+}
+
+.listContent {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+}
+
+.listMain {
+    flex: 1;
+}
+
+.listSidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.noticiaSubtitulo {
+    color: #333333;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    opacity: 0.9;
+    font-family: 'Poppins', sans-serif;
+}
+
+.noticiaLead {
+    color: #333333;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+    font-family: 'Poppins', sans-serif;
+}
+
+.noticiaMetadata {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.metadataItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: #333333;
+    opacity: 0.7;
+    font-family: 'Poppins', sans-serif;
+}
+
+.metadataRow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.noticiaCategorias {
+    margin-top: 0.5rem;
+}
+
+.badge {
+    font-size: 0.75rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.categoriaBadge {
+    background-color: #43b028 !important;
+}
+
+.cardActions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.listActions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: auto;
+}
+
+.detalleButton {
+    background-color: #43b028 !important;
+    border-color: #43b028 !important;
+    font-family: 'Poppins', sans-serif;
+}
+
+.detalleButton:hover {
+    background-color: #6fb71f !important;
+    border-color: #6fb71f !important;
+}
+
+.editarButton {
+    background-color: #ffffff !important;
+    color: #333333 !important;
+    border: 1px solid #dddddd !important;
+    font-family: 'Poppins', sans-serif;
+}
+
+.editarButton:hover {
+    background-color: #f8f9fa !important;
+    border-color: #43b028 !important;
+}
+
+.eliminarButton {
+    background-color: #e74c3c !important;
+    border-color: #e74c3c !important;
+    font-family: 'Poppins', sans-serif;
+}
+
+.eliminarButton:hover {
+    background-color: #c0392b !important;
+    border-color: #c0392b !important;
+}
+
+/* Dialog de detalle */
+.detalleDialog :global(.p-dialog-header) {
+    background: linear-gradient(135deg, #43b028, #6fb71f);
+    color: white;
+}
+
+.detalleContent {
+    padding: 1rem 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.detalleHeader {
+    margin-bottom: 1.5rem;
+}
+
+.detalleSubtitulo {
+    color: #333333;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+    font-family: 'Poppins', sans-serif;
+}
+
+.detalleMetadata {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #dddddd;
+}
+
+.fechaInfo {
+    font-size: 0.9rem;
+    color: #333333;
+    opacity: 0.7;
+    font-family: 'Poppins', sans-serif;
+}
+
+.detalleLead {
+    color: #333333;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-left: 4px solid #43b028;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.detalleCuerpo {
+    color: #333333;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    white-space: pre-wrap;
+    font-family: 'Poppins', sans-serif;
+}
+
+.detalleFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid #dddddd;
+    font-size: 0.85rem;
+    color: #333333;
+    opacity: 0.7;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Loading */
+.loadingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem;
+    color: #333333;
+    font-family: 'Poppins', sans-serif;
+}
+
+.loadingContainer p {
+    margin-top: 1rem;
+    opacity: 0.7;
+}
+
+/* Empty State */
+.emptyState {
+    text-align: center;
+    padding: 3rem;
+    color: #666;
+    font-family: 'Poppins', sans-serif;
+}
+
+.emptyState h3 {
+    margin: 1rem 0 0.5rem 0;
+    color: #333;
+    font-weight: 600;
+}
+
+.emptyState p {
+    margin: 0;
+    opacity: 0.7;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .filtrosGrid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .listContent {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .filtrosGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    .cardHeader,
+    .listHeader {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .detalleMetadata {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .detalleFooter {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+    }
+
+    .cardActions,
+    .listActions {
+        flex-direction: column;
+    }
+
+    .detalleDialog :global(.p-dialog) {
+        width: 95vw !important;
+        margin: 1rem;
+    }
+}
+
+/* Estilos globales para PrimeReact dentro del módulo */
+.detalleDialog :global(.p-dialog .p-dialog-header) {
+    background: linear-gradient(135deg, #43b028, #6fb71f) !important;
+    color: white !important;
+}
+
+.detalleDialog :global(.p-dialog .p-dialog-header .p-dialog-title) {
+    color: white !important;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
+
+.detalleDialog :global(.p-dialog .p-dialog-header .p-dialog-header-icon) {
+    color: white !important;
+}
+
+.detalleDialog :global(.p-dialog .p-dialog-header .p-dialog-header-icon:hover) {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Mejoras visuales para los badges */
+.badge {
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.categoriaBadge {
+    font-weight: 600;
+}
+
+/* Mejoras para las tarjetas en hover */
+.noticiaCard {
+    transition: all 0.3s ease;
+}
+
+.noticiaCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilos para el estado vacío mejorado */
+.emptyState {
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 2px dashed #ddd;
+}
+
+.emptyState i {
+    color: #43b028 !important;
+    opacity: 0.5;
+}
