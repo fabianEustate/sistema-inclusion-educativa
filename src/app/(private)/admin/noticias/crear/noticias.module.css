@@ -1,0 +1,246 @@
+.container {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.title {
+    color: var(--green-primary);
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--text);
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    opacity: 0.8;
+}
+
+.divider {
+    height: 2px;
+    background: linear-gradient(90deg, var(--green-primary), var(--green-secondary));
+    margin: 1.5rem 0;
+    border: none;
+}
+
+.contentGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.formContainer,
+.previewContainer {
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+}
+
+.formContent,
+.previewContent {
+    padding: 2rem;
+}
+
+.formGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.fullWidth {
+    grid-column: 1 / -1;
+}
+
+.formField {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.label {
+    font-weight: 600;
+    color: var(--text);
+    font-size: 0.9rem;
+}
+
+.labelRequired::after {
+    content: " *";
+    color: #e74c3c;
+}
+
+.textareaField {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.previewTitle {
+    color: var(--green-primary);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--green-primary);
+    padding-bottom: 0.5rem;
+}
+
+.previewContent {
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.noticiaPreview {
+    line-height: 1.6;
+}
+
+.noticiaTitulo {
+    color: var(--green-primary);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.noticiaSubtitulo {
+    color: var(--text);
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+.noticiaLead {
+    color: var(--text);
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-left: 4px solid var(--green-primary);
+}
+
+.noticiaCuerpo {
+    color: var(--text);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    white-space: pre-wrap;
+}
+
+.noticiaMetadata {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.85rem;
+    color: var(--text);
+    opacity: 0.7;
+}
+
+.noticiaCategoria {
+    background-color: var(--green-primary);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.noticiaUbicacion {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.noticiaUbicacion i {
+    color: var(--green-primary);
+}
+
+.buttonGroup {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 2rem;
+}
+
+.cancelButton {
+    background-color: var(--white) !important;
+    color: var(--text) !important;
+    border: 1px solid var(--border) !important;
+}
+
+.cancelButton:hover {
+    background-color: #f8f9fa !important;
+    border-color: var(--green-primary) !important;
+}
+
+.previewPlaceholder {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text);
+    opacity: 0.5;
+}
+
+.previewPlaceholder i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--border);
+}
+
+.statusBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.statusBorrador {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeaa7;
+}
+
+.statusPublicado {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+.statusArchivado {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+@media (max-width: 1024px) {
+    .contentGrid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .formGrid {
+        grid-template-columns: 1fr; 
+    }
+
+    .formContent,
+    .previewContent {
+        padding: 1rem;
+    }
+
+    .buttonGroup {
+        flex-direction: column;
+    }
+}
