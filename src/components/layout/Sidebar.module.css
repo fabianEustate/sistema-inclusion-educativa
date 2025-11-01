@@ -1,3 +1,4 @@
+/* ========== CONTENEDOR GENERAL ========== */
 .sidebar {
   background-color: white;
   border-right: 1px solid #ddd;
@@ -5,18 +6,21 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
+  position: sticky;
+  top: 0;
+  overflow: hidden;
 }
 
-/* ===== LOGO Y ENCABEZADO ===== */
+/* ========== LOGO Y ENCABEZADO ========== */
 .logoContainer {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #43b028;
+  background-color: var(--green-primary);
   color: white;
   padding: 0.8rem;
   border-bottom: 1px solid #eee;
-  min-height: 65px; /* 🔹 Un poco más compacto */
+  min-height: 65px;
 }
 
 .logoInfo {
@@ -26,23 +30,30 @@
 }
 
 .logoImage {
-  width: 32px; /* 🔹 Más pequeño y proporcionado */
+  width: 32px;
   height: 32px;
 }
 
-.logoInfo h4 {
+.logoText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logoText h4 {
   margin: 0;
-  font-size: 0.95rem; /* 🔹 Más discreto */
+  font-size: 0.95rem;
   font-weight: 600;
 }
 
-.logoInfo p {
+.logoText p {
   margin: 0;
   font-size: 0.75rem;
   line-height: 1;
   opacity: 0.9;
 }
 
+/* ========== MENÚ PRINCIPAL ========== */
 .menu {
   display: flex;
   flex-direction: column;
@@ -50,6 +61,7 @@
   padding: 0.5rem 0;
 }
 
+/* Item base */
 .menuItem {
   display: flex;
   align-items: center;
@@ -66,31 +78,35 @@
 }
 
 .menuItem.active {
-  color: #43b028;
+  color: var(--green-primary);
   background-color: #e9f7ee;
-  border-left: 5px solid #43b028;
+  border-left: 5px solid var(--green-primary);
 }
 
+/* Ícono */
 .icon {
   font-size: 1.2rem;
-  color: #43b028;
+  color: var(--green-primary);
   margin-right: 1rem;
 }
 
+/* Submenús desplegables */
 .expandable {
   justify-content: space-between;
 }
 
 .arrowIcon {
-  color: #43b028;
+  color: var(--green-primary);
 }
 
+/* ========== SUBMENÚS ========== */
 .submenu {
   margin-left: 1.5rem;
   max-height: 0;
   opacity: 0;
   overflow: hidden;
-  transition: max-height 0.35s ease, opacity 0.35s ease;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  will-change: max-height, opacity;
 }
 
 .submenu.open {
@@ -104,6 +120,8 @@
   border-left: 4px solid transparent;
   border-radius: 4px;
   transition: all 0.2s ease;
+  font-size: 0.95rem;
+  line-height: 1.4;
 }
 
 .submenuItem:hover {
@@ -111,10 +129,34 @@
 }
 
 .submenuItem.subActive {
-  color: #43b028;
+  color: var(--green-primary);
   background-color: #e9f7ee;
-  border-left: 4px solid #43b028;
+  border-left: 4px solid var(--green-primary);
 }
 
+/* ========== SCROLL PERSONALIZADO ========== */
+.p-scrollpanel .p-scrollpanel-bar {
+  background-color: #aaa !important;
+  width: 6px !important;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
 
+.p-scrollpanel .p-scrollpanel-bar:hover {
+  background-color: #666 !important;
+}
 
+/* ========== ACCESIBILIDAD ========== */
+.menuItem:focus,
+.submenuItem:focus {
+  outline: 2px solid var(--green-secondary);
+  outline-offset: 2px;
+}
+
+/* ========== COLAPSADO ========== */
+@media (max-width: 1024px) {
+  .sidebar {
+    position: fixed;
+    z-index: 1000;
+  }
+}

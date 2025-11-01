@@ -1,0 +1,304 @@
+/* Contenedor principal del formulario */
+.contenedor {
+  padding: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f4f9;
+  min-height: 100vh;
+}
+
+/* Estilos para la tarjeta del formulario */
+.cardFormulario {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.cardFormulario :global(.p-card-title) {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #43b028;
+  font-family: 'Poppins', sans-serif;
+}
+
+.cardFormulario :global(.p-card-body) {
+  padding: 2rem;
+}
+
+/* Estilos para campos del formulario */
+.campo {
+  margin-bottom: 1.5rem;
+}
+
+.label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #34495e;
+  font-size: 0.95rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.requerido {
+  color: #e74c3c;
+  margin-left: 0.25rem;
+}
+
+/* Contador de caracteres */
+.contadorCaracteres {
+  margin-top: 0.25rem;
+  font-size: 0.85rem;
+  color: #7f8c8d;
+  text-align: right;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Estilos para mensajes de error */
+.error {
+  display: block;
+  color: #e74c3c;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Contenedor de botones */
+.botonesContainer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #ecf0f1;
+}
+
+.botonGuardar {
+  min-width: 150px;
+  background: linear-gradient(135deg, #43b028 0%, #6fb71f 100%);
+  border: none;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+  color: #ffffff;
+}
+
+.botonGuardar:hover {
+  background: linear-gradient(135deg, #6fb71f 0%, #43b028 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(67, 176, 40, 0.4);
+}
+
+.botonGuardar:focus {
+  box-shadow: 0 0 0 0.2rem rgba(67, 176, 40, 0.3);
+}
+
+.botonCancelar {
+  min-width: 120px;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Estilos para inputs con error */
+.campo :global(.p-invalid) {
+  border-color: #e74c3c !important;
+}
+
+.campo :global(.p-invalid:focus) {
+  box-shadow: 0 0 0 0.2rem rgba(231, 76, 60, 0.25) !important;
+}
+
+/* Estilos para campos de texto */
+.campo :global(.p-inputtext),
+.campo :global(.p-inputtextarea),
+.campo :global(.p-dropdown),
+.campo :global(.p-calendar) {
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  transition: all 0.2s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.campo :global(.p-inputtext:hover),
+.campo :global(.p-inputtextarea:hover),
+.campo :global(.p-dropdown:hover),
+.campo :global(.p-calendar:hover) {
+  border-color: #43b028;
+}
+
+.campo :global(.p-inputtext:focus),
+.campo :global(.p-inputtextarea:focus) {
+  border-color: #43b028;
+  box-shadow: 0 0 0 0.2rem rgba(67, 176, 40, 0.25);
+}
+
+.campo :global(.p-dropdown:focus) {
+  border-color: #43b028;
+  box-shadow: 0 0 0 0.2rem rgba(67, 176, 40, 0.25);
+}
+
+.campo :global(.p-calendar:focus) {
+  border-color: #43b028;
+}
+
+.campo :global(.p-calendar .p-inputtext:focus) {
+  border-color: #43b028;
+  box-shadow: 0 0 0 0.2rem rgba(67, 176, 40, 0.25);
+}
+
+/* Estilos para textarea */
+.campo :global(.p-inputtextarea) {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Estilos para dropdown */
+.campo :global(.p-dropdown-label) {
+  padding: 0.75rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.campo :global(.p-dropdown-trigger) {
+  width: 2.5rem;
+}
+
+.campo :global(.p-dropdown-item) {
+  font-family: 'Poppins', sans-serif;
+}
+
+.campo :global(.p-dropdown-item:hover) {
+  background-color: rgba(67, 176, 40, 0.1);
+}
+
+.campo :global(.p-dropdown-item.p-highlight) {
+  background-color: #43b028;
+  color: #ffffff;
+}
+
+/* Estilos para el calendario */
+.campo :global(.p-calendar .p-inputtext) {
+  width: 100%;
+}
+
+.campo :global(.p-datepicker) {
+  font-family: 'Poppins', sans-serif;
+}
+
+.campo :global(.p-datepicker .p-datepicker-today > span) {
+  background-color: #43b028;
+  color: #ffffff;
+}
+
+.campo :global(.p-datepicker .p-datepicker-today > span:hover) {
+  background-color: #6fb71f;
+}
+
+.campo :global(.p-datepicker td > span:hover) {
+  background-color: rgba(67, 176, 40, 0.1);
+}
+
+.campo :global(.p-datepicker td.p-datepicker-today > span.p-highlight) {
+  background-color: #43b028;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .contenedor {
+    padding: 1rem;
+  }
+
+  .cardFormulario :global(.p-card-body) {
+    padding: 1rem;
+  }
+
+  .cardFormulario :global(.p-card-title) {
+    font-size: 1.5rem;
+  }
+
+  .botonesContainer {
+    flex-direction: column-reverse;
+  }
+
+  .botonGuardar,
+  .botonCancelar {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .label {
+    font-size: 0.9rem;
+  }
+}
+
+/* Animación para campos con error */
+@keyframes shake {
+  0%, 100% { 
+    transform: translateX(0); 
+  }
+  25% { 
+    transform: translateX(-5px); 
+  }
+  75% { 
+    transform: translateX(5px); 
+  }
+}
+
+.campo :global(.p-invalid) {
+  animation: shake 0.3s ease-in-out;
+}
+
+/* Estilos para el toast */
+.contenedor :global(.p-toast) {
+  z-index: 9999;
+}
+
+.contenedor :global(.p-toast-message) {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-family: 'Poppins', sans-serif;
+}
+
+.contenedor :global(.p-toast-message.p-toast-message-success .p-toast-message-icon) {
+  color: #43b028;
+}
+
+.contenedor :global(.p-toast-message.p-toast-message-success) {
+  border-left: 4px solid #43b028;
+}
+
+/* Mejoras visuales para el formulario */
+.campo:hover .label {
+  color: #43b028;
+  transition: color 0.2s ease;
+}
+
+/* Estado de foco mejorado */
+.campo :global(.p-inputtext:focus),
+.campo :global(.p-inputtextarea:focus),
+.campo :global(.p-dropdown:focus),
+.campo :global(.p-calendar:focus) {
+  outline: none;
+}
+
+/* Placeholder personalizado */
+.campo :global(.p-inputtext::placeholder),
+.campo :global(.p-inputtextarea::placeholder) {
+  color: #95a5a6;
+  font-style: italic;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Estilos para campos deshabilitados */
+.campo :global(.p-inputtext:disabled),
+.campo :global(.p-inputtextarea:disabled),
+.campo :global(.p-dropdown:disabled) {
+  background-color: #f8f9fa;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
