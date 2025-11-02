@@ -3,6 +3,35 @@
   padding: 0.75rem;
 }
 
+/* Encabezado */
+.header {
+  margin-bottom: 1rem;
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.headerContent i {
+  font-size: 2.5rem;
+  color: #16a34a;
+}
+
+.headerTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0;
+  color: #16a34a;
+}
+
+.headerSubtitle {
+  font-size: 0.95rem;
+  margin: 0.25rem 0 0 0;
+  color: #000000;
+}
+
 /* Grid layouts */
 .grid {
   display: grid;

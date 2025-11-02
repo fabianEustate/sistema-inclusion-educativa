@@ -167,6 +167,19 @@ export default function ReunionesDocente() {
     <div className={styles.container}>
       <Toast ref={toast} />
 
+      {/* Encabezado */}
+      <div className={styles.header}>
+        <div className={styles.headerContent}>
+          <i className="pi pi-calendar-check"></i>
+          <div>
+            <h1 className={styles.headerTitle}>Gestión de Reuniones Académicas</h1>
+            <p className={styles.headerSubtitle}>
+              Visualiza, confirma tu asistencia y consulta actas de las reuniones programadas
+            </p>
+          </div>
+        </div>
+      </div>
+
       <div className={styles.grid}>
         {/* Calendario */}
         <div className={styles.calendarSection}>
