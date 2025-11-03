@@ -84,3 +84,13 @@ html.dark-mode * {
 html.daltonic {
   filter: hue-rotate(30deg) saturate(0.8);
 }
+
+/* ==== 🔹 Escala de grises ==== */
+html.grayscale-mode {
+  filter: grayscale(100%) !important;
+}
+
+/* Aseguramos que no afecte la legibilidad de textos */
+html.grayscale-mode body {
+  color: #333 !important;
+}

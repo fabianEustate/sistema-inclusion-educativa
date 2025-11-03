@@ -54,12 +54,12 @@ return (
           checked={remember}
           onChange={(e) => setRemember(e.checked)}
         />
-        <label htmlFor="remember">Remember me</label>
+        <label htmlFor="remember">Recordarme</label>
       </div>
-      <a href="#" className={styles.link}>Forgot password?</a>
+      <a href="#" className={styles.link}>¿Olvidó su contraseña?</a>
     </div>
 
-    <Button label="Sign In" className={styles.button} type="submit" />
+    <Button label="Iniciar sesion" className={styles.button} type="submit" />
   </form>
 </div>
 
