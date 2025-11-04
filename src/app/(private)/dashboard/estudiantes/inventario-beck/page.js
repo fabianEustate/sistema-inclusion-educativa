@@ -9,8 +9,11 @@ import { BreadCrumb } from 'primereact/breadcrumb';
 import { Card } from 'primereact/card';
 import { Divider } from 'primereact/divider';
 import styles from './inventario-beck.module.css';
+import { jsPDF } from 'jspdf';
+import autoTable from 'jspdf-autotable';
 
 export default function InventarioBeckPage() {
+  
   const sintomas = [
     { id: 1, nombre: "Adormecimiento o cosquilleo" },
     { id: 2, nombre: "Sentirse acalorado(a)" },
@@ -90,6 +93,77 @@ export default function InventarioBeckPage() {
   ];
 
   const home = { icon: 'pi pi-home', url: '/dashboard' };
+
+  const generarPDF = () => {
+    const doc = new jsPDF({ unit: 'mm', format: 'a4' });
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const margin = 12;
+    let y = 10;
+
+    // Encabezado
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(10);
+    doc.text('Universidad Popular del Cesar', margin, y);
+    doc.text('La UPC', pageWidth - margin, y, { align: 'right' });
+    y += 8;
+    doc.setFontSize(12);
+    doc.text('INVENTARIO DE ANSIEDAD DE BECK', pageWidth / 2, y, { align: 'center' });
+
+    // Datos generales
+    y += 10;
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(10);
+    const putLine = (label, value, x, width) => {
+      const text = `${label}`;
+      doc.text(text, x, y);
+      const lx = x + doc.getTextWidth(text) + 2;
+      doc.line(lx, y + 0.6, x + width, y + 0.6);
+      if (value) doc.text(String(value), lx + 1, y);
+    };
+    putLine('Nombre:', form.nombre, margin, pageWidth - margin * 2 - 60);
+    putLine('Edad:', form.edad, pageWidth - margin - 55, 16);
+    putLine('Sexo:', form.sexo, pageWidth - margin - 35, 16);
+    y += 8;
+    putLine('Fecha:', form.fecha ? new Date(form.fecha).toLocaleDateString('es-ES') : '', margin, 60);
+
+    // Instrucciones
+    y += 8;
+    const instrucciones = [
+      'Abajo encontrará una lista de síntomas comunes de ansiedad. Marque cuánto le ha molestado',
+      'cada síntoma durante la semana pasada, incluyendo hoy.'
+    ];
+    instrucciones.forEach(line => { doc.text(line, margin, y); y += 5; });
+    const leyenda = ['0 No ha estado presente','1 Levemente','2 Moderadamente','3 Severamente'];
+    doc.setFontSize(9);
+    doc.text(leyenda.join('    '), margin, y);
+
+    // Tabla de síntomas
+    y += 6;
+    const head = [['No.', 'Síntoma', '0', '1', '2', '3']];
+    const body = sintomas.map((s) => {
+      const marc = [0,1,2,3].map(v => (form.respuestas[s.id] === v ? 'X' : ''));
+      return [s.id, s.nombre, ...marc];
+    });
+    autoTable(doc, {
+      head,
+      body,
+      startY: y,
+      styles: { fontSize: 9, cellPadding: 2 },
+      headStyles: { fillColor: [255,255,255], textColor: 0, fontStyle: 'bold' },
+      columnStyles: { 0: { cellWidth: 10 }, 2: { halign: 'center' }, 3: { halign: 'center' }, 4: { halign: 'center' }, 5: { halign: 'center' } },
+      margin: { left: margin, right: margin },
+    });
+
+    // Footer
+    const pageCount = doc.internal.getNumberOfPages();
+    for (let i = 1; i <= pageCount; i++) {
+      doc.setPage(i);
+      doc.setFontSize(8);
+      doc.text(`Página ${i} de ${pageCount}`, pageWidth / 2, doc.internal.pageSize.getHeight() - 6, { align: 'center' });
+    }
+
+    doc.save(`Inventario_Beck_${form.nombre || 'estudiante'}.pdf`);
+  };
 
   return (
     <div className={styles.container}>
@@ -217,11 +291,10 @@ export default function InventarioBeckPage() {
 
           <div className={styles.actions}>
             <Button 
-              label="Guardar" 
-              type="submit" 
+              label="Descargar PDF" 
+              type="button"
               disabled={!isFormValid()}
-              tooltip={!isFormValid() ? "Complete todos los campos requeridos" : ""} 
-              tooltipOptions={{position: 'top'}}
+              onClick={generarPDF}
             />
             <Button 
               label="Cancelar" 
