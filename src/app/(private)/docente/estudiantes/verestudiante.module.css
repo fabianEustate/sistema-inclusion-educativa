@@ -1,0 +1,439 @@
+/* verestudiantes.module.css */
+
+.container {
+  font-family: 'Poppins', sans-serif;
+  padding: 2rem;
+  background-color: #f4f4f9;
+  min-height: 100vh;
+}
+
+.mainCard {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+/* Header Section */
+.header {
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #f4f4f9;
+  padding-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0 0 0.5rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: #7f8c8d;
+  margin: 0;
+}
+
+.subtitle strong {
+  color: #43b028;
+}
+
+.refreshButton {
+  background: linear-gradient(135deg, #43b028 0%, #6fb71f 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+}
+
+.refreshButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(67, 176, 40, 0.3);
+}
+
+.refreshButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Filter Section */
+.filterSection {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: #f4f4f9;
+  border-radius: 8px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-weight: 500;
+  color: #2c3e50;
+  font-size: 0.95rem;
+}
+
+.dropdown {
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Stats Section */
+.statsSection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.statCard {
+  background: linear-gradient(135deg, #43b028 0%, #6fb71f 100%);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  box-shadow: 0 4px 12px rgba(67, 176, 40, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(67, 176, 40, 0.3);
+}
+
+.statIcon {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: white;
+}
+
+.statContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.statValue {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 400;
+}
+
+/* Table Section */
+.tableSection {
+  margin-top: 2rem;
+}
+
+.tableHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f4f4f9;
+  border-radius: 8px 8px 0 0;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.tableTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.searchInput {
+  min-width: 250px;
+}
+
+.searchInput:focus {
+  border-color: #43b028;
+  box-shadow: 0 0 0 0.2rem rgba(67, 176, 40, 0.25);
+}
+
+.mainTable {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.mainTable :global(.p-datatable-header) {
+  background-color: #f4f4f9;
+  border: none;
+  padding: 1rem;
+}
+
+.mainTable :global(.p-datatable-thead > tr > th) {
+  background-color: #43b028;
+  color: white;
+  font-weight: 600;
+  padding: 1rem;
+  border: none;
+}
+
+.mainTable :global(.p-datatable-tbody > tr) {
+  transition: background-color 0.2s ease;
+}
+
+.mainTable :global(.p-datatable-tbody > tr:hover) {
+  background-color: rgba(67, 176, 40, 0.05);
+}
+
+.mainTable :global(.p-datatable-tbody > tr > td) {
+  padding: 1rem;
+  border-bottom: 1px solid #f4f4f9;
+}
+
+/* Código Template */
+.codigoContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.codigoBadge {
+  display: inline-block;
+  background-color: #43b028;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  width: fit-content;
+}
+
+.grupo {
+  font-size: 0.8rem;
+  color: #7f8c8d;
+  font-weight: 500;
+}
+
+/* Count Template */
+.countContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.countLabel {
+  font-size: 0.85rem;
+  color: #7f8c8d;
+  font-weight: 500;
+}
+
+/* Row Expansion */
+.expansionContainer {
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-left: 4px solid #6fb71f;
+  margin: 0.5rem 0;
+}
+
+.expansionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.expansionTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.expansionTitle::before {
+  content: '📚';
+  font-size: 1.2rem;
+}
+
+.expansionStats {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.estudiantesTable {
+  background: white;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.estudiantesTable :global(.p-datatable-thead > tr > th) {
+  background-color: #6fb71f;
+  color: white;
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 0.75rem;
+}
+
+.estudiantesTable :global(.p-datatable-tbody > tr > td) {
+  padding: 0.75rem;
+  font-size: 0.9rem;
+}
+
+/* Empty State */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: #7f8c8d;
+}
+
+.emptyState p {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Skeleton Loading */
+.skeletonContainer {
+  padding: 2rem 0;
+}
+
+/* Badge Customization */
+.mainTable :global(.p-badge.p-badge-success) {
+  background-color: #43b028;
+  font-size: 1rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 20px;
+}
+
+.estudiantesTable :global(.p-badge) {
+  font-size: 0.8rem;
+  padding: 0.35rem 0.6rem;
+}
+
+/* Dropdown Customization */
+.dropdown :global(.p-dropdown:not(.p-disabled):hover) {
+  border-color: #43b028;
+}
+
+.dropdown :global(.p-dropdown:not(.p-disabled).p-focus) {
+  box-shadow: 0 0 0 0.2rem rgba(67, 176, 40, 0.25);
+  border-color: #43b028;
+}
+
+/* Paginator Customization */
+.mainTable :global(.p-paginator) {
+  background-color: #f4f4f9;
+  border: none;
+  padding: 1rem;
+}
+
+.mainTable :global(.p-paginator .p-paginator-pages .p-paginator-page.p-highlight) {
+  background-color: #43b028;
+  border-color: #43b028;
+  color: white;
+}
+
+.mainTable :global(.p-paginator .p-paginator-pages .p-paginator-page:not(.p-highlight):hover) {
+  background-color: rgba(67, 176, 40, 0.1);
+  border-color: #43b028;
+  color: #43b028;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .mainCard {
+    padding: 1.5rem;
+  }
+
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .statsSection {
+    grid-template-columns: 1fr;
+  }
+
+  .statCard {
+    padding: 1.25rem;
+  }
+
+  .statIcon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+
+  .statValue {
+    font-size: 1.75rem;
+  }
+
+  .mainTable :global(.p-datatable-thead > tr > th),
+  .mainTable :global(.p-datatable-tbody > tr > td) {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .expansionContainer {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.2rem;
+  }
+
+  .subtitle {
+    font-size: 0.85rem;
+  }
+
+  .filterSection {
+    padding: 1rem;
+  }
+
+  .statValue {
+    font-size: 1.5rem;
+  }
+
+  .statLabel {
+    font-size: 0.8rem;
+  }
+}
