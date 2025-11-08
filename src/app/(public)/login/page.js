@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { InputText } from 'primereact/inputtext';
 import { Password } from 'primereact/password';
 import { Checkbox } from 'primereact/checkbox';
@@ -7,62 +8,64 @@ import { Button } from 'primereact/button';
 import styles from './Login.module.css';
 
 export default function LoginPage() {
-const [email, setEmail] = useState('');
-const [password, setPassword] = useState('');
-const [remember, setRemember] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [remember, setRemember] = useState(false);
+  const router = useRouter(); // ✅ Hook para redirección
 
-const handleSubmit = (e) => {
-e.preventDefault();
-console.log('Datos de inicio de sesión:', { email, password, remember });
-// Aquí luego se integrará la autenticación con Firebase o el backend
-};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Datos de inicio de sesión:', { email, password, remember });
 
-return (
-<div className={styles.container}>
+    // Aquí luego puedes validar credenciales con tu backend o Firebase
 
-  {/* Formulario */}
-  <form onSubmit={handleSubmit} className={styles.form}>
-    <h2 className={styles.title}>Bienvenido al sistema de inclusión</h2>
-    <p className={styles.subtitle}>Inicie sesión para continuar</p>
+    // ✅ Redirigir al dashboard
+    router.push('http://localhost:3000/admin/dashboard');
+  };
 
-    <label className={styles.label} htmlFor="email">Usuario</label>
-    <InputText
-      id="email"
-      type="email"
-      value={email}
-      onChange={(e) => setEmail(e.target.value)}
-      placeholder="Email address"
-      required
-      className={styles.input}
-    />
+  return (
+    <div className={styles.container}>
+      {/* Formulario */}
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <h2 className={styles.title}>Bienvenido al sistema de inclusión</h2>
+        <p className={styles.subtitle}>Inicie sesión para continuar</p>
 
-    <label className={styles.label} htmlFor="password">Password</label>
-    <Password
-      id="password"
-      value={password}
-      onChange={(e) => setPassword(e.target.value)}
-      toggleMask
-      feedback={false}
-      placeholder="Password"
-      className={styles.password}
-    />
-
-    <div className={styles.options}>
-      <div className={styles.remember}>
-        <Checkbox
-          inputId="remember"
-          checked={remember}
-          onChange={(e) => setRemember(e.checked)}
+        <label className={styles.label} htmlFor="email">Usuario</label>
+        <InputText
+          id="email"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email address"
+          required
+          className={styles.input}
         />
-        <label htmlFor="remember">Recordarme</label>
-      </div>
-      <a href="#" className={styles.link}>¿Olvidó su contraseña?</a>
+
+        <label className={styles.label} htmlFor="password">Password</label>
+        <Password
+          id="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          toggleMask
+          feedback={false}
+          placeholder="Password"
+          className={styles.password}
+        />
+
+        <div className={styles.options}>
+          <div className={styles.remember}>
+            <Checkbox
+              inputId="remember"
+              checked={remember}
+              onChange={(e) => setRemember(e.checked)}
+            />
+            <label htmlFor="remember">Recordarme</label>
+          </div>
+          <a href="#" className={styles.link}>¿Olvidó su contraseña?</a>
+        </div>
+
+        <Button label="Iniciar sesión" className={styles.button} type="submit" />
+      </form>
     </div>
-
-    <Button label="Iniciar sesion" className={styles.button} type="submit" />
-  </form>
-</div>
-
-
-);
+  );
 }
