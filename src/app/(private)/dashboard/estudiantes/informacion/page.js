@@ -8,7 +8,6 @@ import { Button } from 'primereact/button';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { useMemo, useState } from 'react';
-import { jsPDF } from 'jspdf';
 import 'jspdf-autotable';
 import styles from './Informacion.module.css';
 

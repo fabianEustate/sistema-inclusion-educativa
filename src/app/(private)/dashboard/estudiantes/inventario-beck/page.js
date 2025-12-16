@@ -10,7 +10,7 @@ import { Card } from 'primereact/card';
 import { Divider } from 'primereact/divider';
 import styles from './inventario-beck.module.css';
 import { jsPDF } from 'jspdf';
-import autoTable from 'jspdf-autotable';
+//import autoTable from 'jspdf-autotable';
 
 export default function InventarioBeckPage() {
   
@@ -144,7 +144,7 @@ export default function InventarioBeckPage() {
       const marc = [0,1,2,3].map(v => (form.respuestas[s.id] === v ? 'X' : ''));
       return [s.id, s.nombre, ...marc];
     });
-    autoTable(doc, {
+    /*autoTable(doc, {
       head,
       body,
       startY: y,
@@ -152,7 +152,7 @@ export default function InventarioBeckPage() {
       headStyles: { fillColor: [255,255,255], textColor: 0, fontStyle: 'bold' },
       columnStyles: { 0: { cellWidth: 10 }, 2: { halign: 'center' }, 3: { halign: 'center' }, 4: { halign: 'center' }, 5: { halign: 'center' } },
       margin: { left: margin, right: margin },
-    });
+    });*/
 
     // Footer
     const pageCount = doc.internal.getNumberOfPages();
