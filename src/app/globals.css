@@ -138,6 +138,21 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Escala de grises para toda la app */
+html.grayscale,
+html.grayscale body,
+html.grayscale .p-card,
+html.grayscale .p-button,
+html.grayscale .p-inputtext,
+html.grayscale .p-dropdown,
+html.grayscale .p-multiselect,
+html.grayscale .p-calendar,
+html.grayscale .p-password,
+html.grayscale .p-inputnumber {
+  filter: grayscale(100%) !important;
+}
+
+
 
 
 

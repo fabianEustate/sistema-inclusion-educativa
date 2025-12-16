@@ -1,0 +1,179 @@
+/* Contenedor principal */
+.container {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Títulos */
+.title {
+  color: #43b028;
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.subtitle {
+  color: #333333;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  opacity: 0.8;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Tarjetas de estudiantes */
+.noticiaCard {
+  height: 100%;
+  transition: all 0.3s ease;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.noticiaCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Header de tarjeta */
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 0.5rem;
+}
+
+.noticiaTitulo {
+  color: #43b028;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  flex: 1;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Contenido de tarjeta */
+.cardContent p {
+  margin: 0.25rem 0;
+  color: #333333;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Botones de acción */
+.cardActions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+/* Botón detalle */
+.detalleButton {
+  background-color: #43b028 !important;
+  border-color: #43b028 !important;
+  font-family: 'Poppins', sans-serif;
+}
+
+.detalleButton:hover {
+  background-color: #6fb71f !important;
+  border-color: #6fb71f !important;
+}
+
+/* Badges */
+.badge {
+  font-weight: 600;
+  font-size: 0.75rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Dialog de detalle */
+.detalleDialog :global(.p-dialog) {
+  width: 50vw !important;
+}
+
+.detalleDialog :global(.p-dialog .p-dialog-header) {
+  background: linear-gradient(135deg, #43b028, #6fb71f) !important;
+  color: white !important;
+  font-family: 'Poppins', sans-serif;
+}
+
+.detalleContent p {
+  margin: 0.5rem 0;
+  color: #333333;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Loading */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+  color: #333333;
+  font-family: 'Poppins', sans-serif;
+}
+
+.loadingContainer p {
+  margin-top: 1rem;
+  opacity: 0.7;
+}
+
+/* Empty State */
+.emptyState {
+  text-align: center;
+  padding: 3rem;
+  color: #666;
+  font-family: 'Poppins', sans-serif;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 2px dashed #ddd;
+}
+
+.emptyState h3 {
+  margin: 1rem 0 0.5rem 0;
+  color: #333;
+  font-weight: 600;
+}
+
+.emptyState p {
+  margin: 0;
+  opacity: 0.7;
+}
+
+.emptyState i {
+  font-size: 3rem;
+  color: #43b028 !important;
+  opacity: 0.5;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .container {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .cardHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .detalleDialog :global(.p-dialog) {
+    width: 95vw !important;
+    margin: 1rem;
+  }
+
+  .cardActions {
+    flex-direction: column;
+  }
+}

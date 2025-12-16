@@ -18,46 +18,46 @@ export default function Sidebar({ collapsed, role }) {
   // Menús por rol
   const menus = {
     admin: [
-      { label: 'Dashboard', icon: 'pi pi-home', path: '/admin/dashboard' },
+      { label: 'Dashboard', icon: 'pi pi-home', path: '/administrador/dashboard' },
       {
         label: 'Estudiantes',
         icon: 'pi pi-graduation-cap',
         submenu: [
-          { label: 'Información', path: '/admin/estudiantes/informacion' },
-          { label: 'Ficha socioeconómica', path: '/admin/estudiantes/ficha-socioeconomica' },
-          { label: 'Consentimiento informado', path: '/admin/estudiantes/consentimiento-informado' },
-          { label: 'Inventario Beck', path: '/admin/estudiantes/inventario-beck' },
-          { label: 'Visita domiciliaria', path: '/admin/estudiantes/constancia-visita-domiciliaria' },
-          { label: 'Discapacidad', path: '/admin/estudiantes/historia-discapacidad' },
-          { label: 'Retiro voluntario', path: '/admin/estudiantes/retiro-voluntario' },
+          { label: 'Información', path: '/administrador/estudiantes/informacion' },
+          { label: 'Ficha socioeconómica', path: '/administrador/estudiantes/ficha-socioeconomica' },
+          { label: 'Consentimiento informado', path: '/administrador/estudiantes/consentimiento-informado' },
+          { label: 'Inventario Beck', path: '/administrador/estudiantes/inventario-beck' },
+          { label: 'Visita domiciliaria', path: '/administrador/estudiantes/constancia-visita-domiciliaria' },
+          { label: 'Discapacidad', path: '/administrador/estudiantes/historia-discapacidad' },
+          { label: 'Retiro voluntario', path: '/administrador/estudiantes/retiro-voluntario' },
         ],
       },
       {
         label: 'Eventos',
         icon: 'pi pi-calendar',
         submenu: [
-          { label: 'Lista de eventos', path: '/admin/eventos/lista' },
-          { label: 'Crear evento', path: '/admin/eventos/crear' },
+          { label: 'Lista de eventos', path: '/administrador/eventos/lista' },
+          { label: 'Crear evento', path: '/administrador/eventos/crear' },
         ],
       },
       {
         label: 'Noticias',
         icon: 'pi pi-megaphone',
         submenu: [
-          { label: 'Lista de noticias', path: '/admin/noticias/lista' },
-          { label: 'Crear noticia', path: '/admin/noticias/crear' },
+          { label: 'Lista de noticias', path: '/administrador/noticias/lista' },
+          { label: 'Crear noticia', path: '/administrador/noticias/crear' },
         ],
       },
       {
         label: 'Usuarios',
         icon: 'pi pi-users',
         submenu: [
-          { label: 'Crear usuario', path: '/admin/usuarios/crear' },
-          { label: 'Lista de usuarios', path: '/admin/usuarios/lista' },
+          { label: 'Crear usuario', path: '/administrador/usuarios/crear' },
+          { label: 'Lista de usuarios', path: '/administrador/usuarios/lista' },
         ],
       },
-      { label: 'Agenda', icon: 'pi pi-calendar-clock', path: '/admin/agenda' },
-      { label: 'Reporte', icon: 'pi pi-file', path: '/admin/reporte' },
+      { label: 'Agenda', icon: 'pi pi-calendar-clock', path: '/administrador/agenda' },
+      { label: 'Reporte', icon: 'pi pi-file', path: '/administrador/reporte' },
     ],
 
     psicologo: [

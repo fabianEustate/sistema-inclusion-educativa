@@ -10,8 +10,8 @@ return (
 
   {/* Contenido centrado */}
   <div className={styles.content}>
-    <h1 className={styles.title}>BIENESTAR INSTITUCIONAL</h1>
-    <h2 className={styles.subtitle}>INCLUSIÓN EDUCATIVA</h2>
+    <h1 className={styles.title}>INCLUSIÓN EDUCATIVA</h1>
+    <h2 className={styles.subtitle}>EN ESTE ESPACIO ENCONTRARÁS LA INFORMACIÓN RELACIONADA A LA EDUCAION INCLUSIVA</h2>
   </div>
 </section>
 

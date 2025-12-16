@@ -11,6 +11,7 @@ export default function AccessibilityMenu() {
   const [contrast, setContrast] = useState(0); // niveles 0 a 2
   const [darkMode, setDarkMode] = useState(false);
   const [colorBlind, setColorBlind] = useState(false);
+  const [grayscale, setGrayscale] = useState(false); // NUEVO: escala de grises
 
   /* =====================
      🔹 Cargar preferencias
@@ -24,6 +25,7 @@ export default function AccessibilityMenu() {
         if (prefs.contrast !== undefined) setContrast(prefs.contrast);
         if (prefs.darkMode !== undefined) setDarkMode(prefs.darkMode);
         if (prefs.colorBlind !== undefined) setColorBlind(prefs.colorBlind);
+        if (prefs.grayscale !== undefined) setGrayscale(prefs.grayscale);
       } catch (e) {
         console.warn('Error al leer preferencias de accesibilidad', e);
       }
@@ -34,21 +36,27 @@ export default function AccessibilityMenu() {
      🔹 Aplicar y guardar cambios
   ===================== */
   useEffect(() => {
-    const root = document.documentElement;
-    root.style.fontSize = `${100 + (fontSize - 1) * 10}%`;
-    root.classList.remove('contrast-1', 'contrast-2', 'dark-mode', 'daltonic');
+    const root = document.documentElement; // aplica al <html>
 
+    // Tamaño de fuente
+    root.style.fontSize = `${100 + (fontSize - 1) * 10}%`;
+
+    // Limpiar clases anteriores
+    root.classList.remove('contrast-1', 'contrast-2', 'dark-mode', 'daltonic', 'grayscale');
+
+    // Aplicar nuevas clases
     if (contrast === 1) root.classList.add('contrast-1');
     if (contrast === 2) root.classList.add('contrast-2');
     if (darkMode) root.classList.add('dark-mode');
     if (colorBlind) root.classList.add('daltonic');
+    if (grayscale) root.classList.add('grayscale');
 
     // Guardar preferencias
     localStorage.setItem(
       STORAGE_KEY,
-      JSON.stringify({ fontSize, contrast, darkMode, colorBlind })
+      JSON.stringify({ fontSize, contrast, darkMode, colorBlind, grayscale })
     );
-  }, [fontSize, contrast, darkMode, colorBlind]);
+  }, [fontSize, contrast, darkMode, colorBlind, grayscale]);
 
   /* =====================
      🔹 Atajo de teclado (Ctrl + U)
@@ -169,6 +177,22 @@ export default function AccessibilityMenu() {
               }
               onClick={() => setColorBlind(!colorBlind)}
               aria-pressed={colorBlind}
+            />
+          </div>
+
+          {/* Escala de grises */}
+          <div className={`accessibility-option ${styles.optionItem}`}>
+            <i className="pi pi-circle-on"></i>
+            <span>Escala de grises</span>
+            <Button
+              label={grayscale ? 'Desactivar' : 'Activar'}
+              className={
+                grayscale
+                  ? 'p-button-success p-button-active'
+                  : 'p-button-outlined'
+              }
+              onClick={() => setGrayscale(!grayscale)}
+              aria-pressed={grayscale}
             />
           </div>
         </div>

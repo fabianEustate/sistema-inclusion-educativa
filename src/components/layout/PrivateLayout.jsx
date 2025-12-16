@@ -9,18 +9,21 @@ import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import '../../app/globals.css';
 import '@/styles/variables.css';
+import { UserProvider } from "@/context/UserContext";
 
 export default function PrivateLayout({ children, role }) {
   const [collapsed, setCollapsed] = useState(false);
 
   return (
     <div className={styles.container}>
+      <UserProvider>
       <Sidebar collapsed={collapsed} role={role} />
       <div className={styles.content}>
         <Topbar onToggleSidebar={() => setCollapsed(!collapsed)} />
         <main className={styles.mainContent}>{children}</main>
       </div>
       <AccessibilityMenu />
+      </UserProvider>
     </div>
   );
 }
