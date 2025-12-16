@@ -5,9 +5,6 @@ import { InputText } from "primereact/inputtext";
 import { Password } from "primereact/password";
 import { Checkbox } from "primereact/checkbox";
 import { Button } from "primereact/button";
-import Cookies from "js-cookie";
-
-import { loginService, getPerfil } from "@/services/auth/auth_service";
 import styles from "./Login.module.css";
 
 export default function LoginPage() {
@@ -27,77 +24,13 @@ export default function LoginPage() {
     return true;
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setErrorMsg("");
 
-    if (!validateFields()) return;
-
-    setLoading(true);
-
-    try {
-      // LOGIN
-      const loginResponse = await loginService(email, password);
-      console.log("Datos devueltos del LOGIN:", loginResponse);
-
-      // 🔥 Guardar tokens antes de pedir el perfil
-      localStorage.setItem("accessToken", loginResponse.token_acceso);
-      localStorage.setItem("refreshToken", loginResponse.token_renovacion);
-
-      // Obtener token generado
-      const token = localStorage.getItem("accessToken");
-
-      if (!token) {
-        throw new Error("No se pudo obtener el token de autenticación.");
-      }
-
-      // Guardar token en cookies (middleware lo necesita)
-      Cookies.set("accessToken", token, {
-        expires: remember ? 7 : 1,
-        secure: true,
-      });
-
-      // Obtener datos del usuario
-      const perfil = await getPerfil();
-      const rol = perfil?.rol?.nombre?.toLowerCase() || "";
-
-      console.log("Perfil cargado:", perfil);
-
-      // Normalizar acentos
-      const normalizedRol = rol.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-
-      // Guardar rol en cookies
-      Cookies.set("userRole", normalizedRol, { expires: 1 });
-
-      console.log("Usuario autenticado:", perfil);
-
-      // Redirección por rol
-      const rutas = {
-        administrador: "/administrador/dashboard",
-        docente: "/docente/dashboard",
-        tutor: "/tutor/dashboard",
-        psicologo: "/psicologo/dashboard",
-      };
-
-      if (rutas[normalizedRol]) {
-        router.push(rutas[normalizedRol]);
-      } else {
-        setErrorMsg("El usuario no tiene un rol válido o asignado.");
-      }
-    } catch (error) {
-      console.error("Error en login:", error);
-
-      if (error.response?.status === 401) {
-        setErrorMsg("Credenciales incorrectas.");
-      } else if (error.response?.status === 500) {
-        setErrorMsg("Error interno en el servidor.");
-      } else {
-        setErrorMsg("No se pudo conectar con el servidor.");
-      }
-    } finally {
-      setLoading(false);
-    }
+    // Redirección directa sin validar credenciales
+    router.push("/administrador/dashboard");
   };
+
 
   return (
     <div className={styles.container}>
